@@ -117,6 +117,12 @@
         margin: 0 0 0.5rem 0;
         direction: rtl;
         z-index: 1;
+        @media ( min-width: 768px ) {
+            font-size: 40px;
+        }
+        @media ( min-width: 1024px ) {
+            font-size: 48px;
+        }
     }
 
     .verse-title {
