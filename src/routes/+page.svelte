@@ -1,23 +1,33 @@
 <script>
   import heroImage from '$lib/assets/test.png';
   import arrowIcon from '$lib/assets/arrow.svg';
+  import dividerImage from '$lib/assets/divider.png';
+  import frameImage from '$lib/assets/frame.png';
 </script>
 
 <section class="home-section">
   <div class="hero-section">
-    <div class="hero-media">
-      <div class="hero-track">
-        <img src={heroImage} alt="Moskee aan een plein" class="hero-image" />
-        <img src={heroImage} alt="Moskee aan een plein" class="hero-image" />
-        <img src={heroImage} alt="Moskee aan een plein" class="hero-image" />
-      </div>
+    <img src={frameImage} alt="" class="hero-frame" />
+
+    <div class="hero-divider">
+      <img src={dividerImage} alt="" class="hero-divider-image" />
     </div>
 
-    <div class="hero-slider">
-      <h2 class="sr-only">Öne çıkan görseller</h2>
-      <span class="hero-slider-dot"></span>
-      <span class="hero-slider-dot"></span>
-      <span class="hero-slider-dot"></span>
+    <div class="hero-visual">
+      <div class="hero-media">
+        <div class="hero-track">
+          <img src={heroImage} alt="Moskee aan een plein" class="hero-image" />
+          <img src={heroImage} alt="Moskee aan een plein" class="hero-image" />
+          <img src={heroImage} alt="Moskee aan een plein" class="hero-image" />
+        </div>
+      </div>
+
+      <div class="hero-slider">
+        <h2 class="sr-only">Öne çıkan görseller</h2>
+        <span class="hero-slider-dot"></span>
+        <span class="hero-slider-dot"></span>
+        <span class="hero-slider-dot"></span>
+      </div>
     </div>
 
     <div class="hero-content">
@@ -47,6 +57,12 @@
     max-width: 100%;
   }
 
+  :global(*),
+  :global(*::before),
+  :global(*::after) {
+    box-sizing: border-box;
+  }
+
   .sr-only {
     position: absolute;
     width: 1px;
@@ -64,10 +80,36 @@
     min-height: 100svh;
     padding-block-start: 8.75rem;
     background-color: var(--c-nachtgroen, #203226);
+    overflow-x: hidden;
   }
 
   .hero-section {
+    position: relative;
     width: 100%;
+    background-color: var(--c-creme, #f4ebcc);
+  }
+
+  .hero-frame {
+    display: none;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 7.9rem;
+    padding-inline: 1.6rem;
+    background-color: var(--c-nachtgroen, #203226);
+  }
+
+  .hero-divider-image {
+    display: block;
+    width: 100%;
+    max-width: 21.875rem;
+    height: auto;
+  }
+
+  .hero-visual {
     background-color: var(--c-creme, #f4ebcc);
   }
 
@@ -156,7 +198,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.45rem;
-    min-height: 1.5rem;
+    min-height: 2.5rem;
     padding: 0.5rem 0.75rem 0.55rem;
     border-radius: 999rem;
     background-color: var(--c-nachtgroen, #203226);
@@ -251,6 +293,124 @@
     100% {
       width: 0.42rem;
       background-color: rgba(32, 50, 38, 0.45);
+    }
+  }
+  @media (min-width: 48rem) {
+    .home-section {
+      width: 100%;
+      min-height: 100svh;
+      padding: 12.5rem 1.5rem 6rem;
+      background-color: var(--c-nachtgroen, #203226);
+      overflow-x: hidden;
+    }
+
+    .hero-section {
+      display: grid;
+      position: relative;
+      grid-template-columns: minmax(0, 1fr) 18rem;
+      grid-template-areas: "content visual";
+      align-items: center;
+      column-gap: 2.75rem;
+      max-width: 48rem;
+      margin-inline: auto;
+      min-height: 26rem;
+      padding: 5.4rem 3.75rem 4.7rem;
+      background-color: var(--c-creme, #f4ebcc);
+    }
+
+    .hero-frame {
+      position: absolute;
+      inset: 0.55rem;
+      z-index: 1;
+      display: block;
+      width: calc(100% - 1.1rem);
+      height: calc(100% - 1.1rem);
+      pointer-events: none;
+    }
+
+    .hero-divider {
+      position: absolute;
+      top: -4.95rem;
+      right: 0;
+      left: 0;
+      z-index: 2;
+      min-height: auto;
+      margin: 0;
+      padding-inline: 2rem;
+      background-color: transparent;
+    }
+
+    .hero-divider-image {
+      max-width: 42rem;
+    }
+
+    .hero-visual {
+      grid-area: visual;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      width: 100%;
+    }
+
+    .hero-media {
+      width: 100%;
+      max-width: 17.5rem;
+      aspect-ratio: 296 / 333;
+      overflow: hidden;
+      border-radius: 0.45rem;
+      background-color: var(--c-creme, #f4ebcc);
+      box-shadow: 0 0.65rem 1.5rem rgba(32, 50, 38, 0.25);
+    }
+
+    .hero-track {
+      height: 100%;
+    }
+
+    .hero-image {
+      height: 100%;
+      aspect-ratio: auto;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-slider {
+      justify-content: center;
+      padding-block: 0.8rem 0;
+      background-color: transparent;
+    }
+
+    .hero-content {
+      grid-area: content;
+      z-index: 2;
+      align-self: center;
+      padding: 0;
+    }
+
+    .hero-content h1 {
+      max-width: 20rem;
+      margin-block-end: 1rem;
+      font-size: clamp(2rem, 3.9vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .hero-content p {
+      max-width: 22rem;
+      margin-block-end: 1.25rem;
+      font-size: clamp(0.86rem, 1.45vw, 0.95rem);
+      line-height: 1.45;
+    }
+
+    .hero-link {
+      min-height: 1.5rem;
+      padding: 0.6rem 0.9rem 0.66rem;
+      font-size: 0.82rem;
+    }
+    .hero-link-icon {
+      width: 0.8rem;
+      height: 0.8rem;
     }
   }
 </style>
