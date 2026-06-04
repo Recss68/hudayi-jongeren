@@ -46,6 +46,19 @@
                 <p>No verses available.</p>
             {/if}
         </div>
+
+        <!-- Progressive enhancement fallback: if JS is disabled, show the full list inside <noscript> -->
+        <noscript>
+            <ul class="verse-list">
+                {#each verses as verse (verse.id)}
+                    <li class="verse-item">
+                        <p class="verse-text">{verse.arabic}</p>
+                        <h3 class="verse-title">{verse.chapter_name} [{verse.chapter_number}:{verse.verse_number}]</h3>
+                        <p class="verse-translation">{verse.turkish}</p>
+                    </li>
+                {/each}
+            </ul>
+        </noscript>
     </div>
 </section>
 
