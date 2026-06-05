@@ -4,11 +4,14 @@ on:
     branches: [develop, main]
   push:
     branches: [develop, main]
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
 permissions:
   contents: read
+
 jobs:
   ci:
     name: Lint, format, test and build
@@ -16,40 +19,27 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
 
-      - name: Run ESLint
-        run: |
-          if [ "$(npm pkg get scripts.lint)" != "{}" ]; then
-            npm run lint
-          else
-            echo "::notice::No lint script found, skipping"
-          fi
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Run Prettier check
-        run: |
-          if [ "$(npm pkg get scripts['format:check'])" != "{}" ]; then
-            npm run format:check
-          else
-            echo "::notice::No format:check script found, skipping"
-          fi
+      - name: Check formatting (Prettier)
+        if: ${{ !cancelled() }}
+        run: npm run format:check
 
-      - name: Run tests
-        run: |
-          if [ "$(npm pkg get scripts.test)" != "{}" ]; then
-            npm run test
-          else
-            echo "::notice::No test script found, skipping"
-          fi
+      - name: Lint (ESLint)
+        if: ${{ !cancelled() }}
+        run: npm run lint
 
-      - name: Build project
-        run: |
-          if [ "$(npm pkg get scripts.build)" != "{}" ]; then
-            npm run build
-          else
-            echo "::notice::No build script found, skipping"
-          fi
+      - name: Test
+        if: ${{ !cancelled() }}
+        run: npm run test
+
+      - name: Build
+        if: ${{ !cancelled() }}
+        run: npm run build
