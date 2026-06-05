@@ -2,30 +2,32 @@
   import heroImage from '$lib/assets/test.png';
   import arrowIcon from '$lib/assets/arrow.svg';
   import dividerImage from '$lib/assets/divider.svg';
-  import frameImage from '$lib/assets/frame.svg';
   import { QuranVerseSection } from '$lib';
 </script>
 
-<header class="home-header">
-  <section class="card">
+<section class="home-hero">
+  <div class="hero-card">
     <img src={dividerImage} alt="" class="divider" />
 
-    <figure class="visual">
+    <div class="visual">
       <div class="media">
-        <div class="track">
-          <img src={heroImage} alt="Moskee aan een plein" />
-          <img src={heroImage} alt="Moskee aan een plein" />
-          <img src={heroImage} alt="Moskee aan een plein" />
-        </div>
+        <ul class="track">
+          <li><img src={heroImage} alt="Meydandaki cami" /></li>
+          <li><img src={heroImage} alt="Meydandaki cami" /></li>
+          <li><img src={heroImage} alt="Meydandaki cami" /></li>
+        </ul>
       </div>
 
-      <figcaption class="slider-nav">
-        <h2 class="sr-only">Öne çıkan görseller</h2>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </figcaption>
-    </figure>
+      <div class="slider-nav">
+        <p class="sr-only">Öne çıkan görseller</p>
+
+        <ol class="dot-list">
+          <li><span class="dot"></span></li>
+          <li><span class="dot"></span></li>
+          <li><span class="dot"></span></li>
+        </ol>
+      </div>
+    </div>
 
     <div class="content">
       <h1>Toplum için atan bir kalp</h1>
@@ -34,13 +36,13 @@
         Çiçek yıldız gökyüzü mobilya saat tarla kuş dağ elma armut, kaşık, ev defter hava.
       </p>
 
-      <a href="/over-ons" class="link">
+      <a href="/hakkimizda" class="link">
         <span>Daha fazla oku</span>
         <img src={arrowIcon} alt="" class="icon" />
       </a>
     </div>
-  </section>
-</header>
+  </div>
+</section>
 
 <QuranVerseSection />
 
@@ -72,9 +74,8 @@
     border: 0;
   }
 
-  .home-header {
+  .home-hero {
     width: 100%;
-    min-height: 100svh;
     padding-block-start: 5rem;
     background-color: var(--c-nachtgroen, #203226);
     overflow-x: hidden;
@@ -84,7 +85,7 @@
     @media (min-width: 1440px) { padding-block-start: 9.25rem; }
   }
 
-  .card {
+  .hero-card {
     position: relative;
     width: 100%;
     background-color: var(--c-creme, #f4ebcc);
@@ -166,15 +167,22 @@
         .track {
           display: flex;
           width: 300%;
+          margin: 0;
+          padding: 0;
+          list-style: none;
           /* Moves the image track horizontally to create a CSS-only carousel loop. */
           animation: hero-slide 9s infinite ease-in-out;
 
           @media (min-width: 768px) { height: 100%; }
 
-          img {
-            display: block;
+          li {
             flex: 0 0 calc(100% / 3);
             width: calc(100% / 3);
+          }
+
+          img {
+            display: block;
+            width: 100%;
             aspect-ratio: 375 / 268;
             object-fit: cover;
             object-position: center;
@@ -200,6 +208,20 @@
           background-color: transparent;
         }
 
+        .dot-list {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.35rem;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          li:nth-child(1) .dot { animation: hero-dot-one 9s infinite ease-in-out; }
+          li:nth-child(2) .dot { animation: hero-dot-two 9s infinite ease-in-out; }
+          li:nth-child(3) .dot { animation: hero-dot-three 9s infinite ease-in-out; }
+        }
+
         .dot {
           display: block;
           width: 0.42rem;
@@ -207,11 +229,6 @@
           border-radius: 999rem;
           background-color: rgba(32, 50, 38, 0.45);
           transition: width 0.45s ease, background-color 0.45s ease;
-
-          /* Syncs each pagination dot with the active slide in the carousel animation. */
-          &:nth-of-type(1) { animation: hero-dot-one 9s infinite ease-in-out; }
-          &:nth-of-type(2) { animation: hero-dot-two 9s infinite ease-in-out; }
-          &:nth-of-type(3) { animation: hero-dot-three 9s infinite ease-in-out; }
         }
       }
     }
