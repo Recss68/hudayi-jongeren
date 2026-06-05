@@ -1,5 +1,4 @@
 <script>
-	import SiteFooter from '$lib/components/ui/SiteFooter.svelte';
   import heroImage from '$lib/assets/test.png';
   import arrowIcon from '$lib/assets/arrow.svg';
   import dividerImage from '$lib/assets/divider.svg';
@@ -46,8 +45,6 @@
 </section>
 
 <QuranVerseSection />
-
-<SiteFooter />
 
 <style>
   :global(body) {
