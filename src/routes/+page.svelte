@@ -1,5 +1,5 @@
 <script>
-    import { QuranVerseSection } from '$lib';
+	import { QuranVerseSection } from '$lib';
 </script>
 
 <QuranVerseSection />
