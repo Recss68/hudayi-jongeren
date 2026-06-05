@@ -1,0 +1,152 @@
+[
+    {
+      "id": 1,
+      "chapter_name": "Ash-Sharh",
+      "chapter_number": 94,
+      "verse_number": 5,
+      "arabic": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
+      "transliteration": "Fe inne maal usri yusra",
+      "turkish": "Şüphesiz her zorlukla beraber bir kolaylık vardır.",
+      "theme": "umut"
+    },
+    {
+      "id": 2,
+      "chapter_name": "Al-Baqarah",
+      "chapter_number": 2,
+      "verse_number": 286,
+      "arabic": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
+      "transliteration": "La yukellifullahu nefsen illa vus'aha",
+      "turkish": "Allah hiç kimseye gücünün üstünde bir yük yüklemez.",
+      "theme": "güç"
+    },
+    {
+      "id": 3,
+      "chapter_name": "Ar-Ra'd",
+      "chapter_number": 13,
+      "verse_number": 28,
+      "arabic": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
+      "transliteration": "Ela bi zikrillahi tatmainnul kulub",
+      "turkish": "Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.",
+      "theme": "huzur"
+    },
+    {
+      "id": 4,
+      "chapter_name": "At-Talaq",
+      "chapter_number": 65,
+      "verse_number": 3,
+      "arabic": "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
+      "transliteration": "Ve men yetevekkel alallahi fe huve hasbuh",
+      "turkish": "Kim Allah'a güvenip dayanırsa, O ona yeter.",
+      "theme": "tevekkül"
+    },
+    {
+      "id": 5,
+      "chapter_name": "Az-Zumar",
+      "chapter_number": 39,
+      "verse_number": 53,
+      "arabic": "لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",
+      "transliteration": "La taknetu min rahmetillah",
+      "turkish": "Allah'ın rahmetinden ümit kesmeyin.",
+      "theme": "umut"
+    },
+    {
+      "id": 6,
+      "chapter_name": "Al-Baqarah",
+      "chapter_number": 2,
+      "verse_number": 152,
+      "arabic": "فَاذْكُرُونِي أَذْكُرْكُمْ",
+      "transliteration": "Fezkuruni ezkurkum",
+      "turkish": "Öyleyse beni anın ki ben de sizi anayım.",
+      "theme": "zikir"
+    },
+    {
+      "id": 7,
+      "chapter_name": "Aal-Imran",
+      "chapter_number": 3,
+      "verse_number": 139,
+      "arabic": "وَلَا تَهِنُوا وَلَا تَحْزَنُوا",
+      "transliteration": "Ve la tehinu ve la tahzenu",
+      "turkish": "Gevşemeyin ve üzülmeyin.",
+      "theme": "motivasyon"
+    },
+    {
+      "id": 8,
+      "chapter_name": "Al-Baqarah",
+      "chapter_number": 2,
+      "verse_number": 153,
+      "arabic": "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+      "transliteration": "İnnallahe maas sabirin",
+      "turkish": "Şüphesiz Allah sabredenlerle beraberdir.",
+      "theme": "sabır"
+    },
+    {
+      "id": 9,
+      "chapter_name": "Ghafir",
+      "chapter_number": 40,
+      "verse_number": 60,
+      "arabic": "ادْعُونِي أَسْتَجِبْ لَكُمْ",
+      "transliteration": "Ud'uni estecib lekum",
+      "turkish": "Bana dua edin, duanıza karşılık vereyim.",
+      "theme": "dua"
+    },
+    {
+      "id": 10,
+      "chapter_name": "Qaf",
+      "chapter_number": 50,
+      "verse_number": 16,
+      "arabic": "وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ",
+      "transliteration": "Ve nahnu akrabu ileyhi min hablil verid",
+      "turkish": "Biz ona şah damarından daha yakınız.",
+      "theme": "yakınlık"
+    },
+    {
+      "id": 11,
+      "chapter_name": "Ad-Duha",
+      "chapter_number": 93,
+      "verse_number": 5,
+      "arabic": "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ",
+      "transliteration": "Ve le sevfe yu'tike rabbuke fe terda",
+      "turkish": "Rabbin sana verecek ve sen razı olacaksın.",
+      "theme": "umut"
+    },
+    {
+      "id": 12,
+      "chapter_name": "Aal-Imran",
+      "chapter_number": 3,
+      "verse_number": 159,
+      "arabic": "فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللَّهِ",
+      "transliteration": "Fe iza azemte fe tevekkel alallah",
+      "turkish": "Bir işe karar verdiğinde Allah'a güvenip dayan.",
+      "theme": "tevekkül"
+    },
+    {
+      "id": 13,
+      "chapter_name": "At-Taghabun",
+      "chapter_number": 64,
+      "verse_number": 11,
+      "arabic": "وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ",
+      "transliteration": "Ve men yu'min billahi yehdi kalbeh",
+      "turkish": "Kim Allah'a inanırsa, Allah onun kalbini doğruya yöneltir.",
+      "theme": "iman"
+    },
+    {
+      "id": 14,
+      "chapter_name": "Al-Ankabut",
+      "chapter_number": 29,
+      "verse_number": 69,
+      "arabic": "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",
+      "transliteration": "Vellezine cahedu fina le nehdiyennehum subulena",
+      "turkish": "Bizim uğrumuzda gayret edenleri elbette kendi yollarımıza ulaştırırız.",
+      "theme": "çaba"
+    },
+    {
+      "id": 15,
+      "chapter_name": "Al-Baqarah",
+      "chapter_number": 2,
+      "verse_number": 186,
+      "arabic": "فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ",
+      "transliteration": "Fe inni karib, ucibu da'veted dai iza dean",
+      "turkish": "Ben kullarıma çok yakınım; bana dua edenin duasına cevap veririm.",
+      "theme": "dua"
+    }
+]

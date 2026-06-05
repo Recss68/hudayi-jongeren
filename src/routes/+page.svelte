@@ -3,6 +3,7 @@
   import arrowIcon from '$lib/assets/arrow.svg';
   import dividerImage from '$lib/assets/divider.svg';
   import frameImage from '$lib/assets/frame.svg';
+  import { QuranVerseSection } from '$lib';
 </script>
 
 <header class="home-header">
@@ -45,6 +46,8 @@
     </div>
   </article>
 </header>
+
+<QuranVerseSection />
 
 <style>
   :global(body) {

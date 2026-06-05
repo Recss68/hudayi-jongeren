@@ -76,6 +76,7 @@
     --c-poederblauw-hex: #BED4E2;
     --c-wit-hex: #FFFFFF;
     --c-bordeaux-hex: #6E0F13;
+    --c-bg-text: #3D5A47;
 
     /* Color Palette - RGB Waarden */
     --c-nachtgroen-rgb: 32, 50, 38;
@@ -208,7 +209,6 @@ p {
 .section > .section-inner {
     max-width: 1280px;
     margin-inline: auto;
-    padding-inline: clamp(1rem, 4vw, 2rem);
 }
 
 .section-heading {
