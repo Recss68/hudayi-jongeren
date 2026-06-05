@@ -4,103 +4,102 @@
   import mailIcon from '$lib/assets/mail.svg';
 </script>
 
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <section class="site-footer__brand">
-      <h3 class="site-footer__title">Hüdayi Gençlik</h3>
-      <p class="site-footer__tagline">
+<footer class="footer">
+  <div class="inner">
+    <section class="brand">
+      <h3 class="title">Hüdayi Gençlik</h3>
+      <p class="tagline">
         Gençler için bir yuva — inançla köklenen, toplulukla güçlenen.
       </p>
     </section>
 
-    <nav class="site-footer__navigation">
+    <nav class="navigation">
       <h3 class="heading">Navigasyon</h3>
 
-      <ul class="site-footer__list">
-        <li class="site-footer__item">
-          <a class="site-footer__link" href="/">Ana Sayfa</a>
+      <ul class="list">
+        <li>
+          <a class="link" href="/">Ana Sayfa</a>
         </li>
-        <li class="site-footer__item">
-          <a class="site-footer__link" href="/blog">Blog</a>
+        <li>
+          <a class="link" href="/blog">Blog</a>
         </li>
-        <li class="site-footer__item">
-          <a class="site-footer__link" href="/over-ons">Hakkımızda</a>
+        <li>
+          <a class="link" href="/over-ons">Hakkımızda</a>
         </li>
-        <li class="site-footer__item">
-          <a class="site-footer__link" href="/activiteiten">Etkinlikler</a>
+        <li>
+          <a class="link" href="/activiteiten">Etkinlikler</a>
         </li>
-        <li class="site-footer__item">
-          <a class="site-footer__link" href="/contact">İletişim</a>
+        <li>
+          <a class="link" href="/contact">İletişim</a>
         </li>
-        <li class="site-footer__item">
-          <a class="site-footer__link" href="/doneren">Bağış Yap</a>
+        <li>
+          <a class="link" href="/doneren">Bağış Yap</a>
         </li>
       </ul>
     </nav>
 
-    <section class="site-footer__contact">
+    <section class="contact">
       <h3 class="heading">İletişim</h3>
 
-      <address class="site-footer__address">
-        <span class="site-footer__contact-row">
-          <img src={locationIcon} alt="" class="site-footer__icon" />
+      <address class="address">
+        <span class="contact-row">
+          <img src={locationIcon} alt="" class="icon" />
           <span>Voorbeeldstraat 12, 3000 AB Rotterdam</span>
         </span>
 
-        <span class="site-footer__contact-row">
-          <img src={mailIcon} alt="" class="site-footer__icon" />
-          <a class="site-footer__link" href="mailto:info@hudayigenclik.nl">
+        <span class="contact-row">
+          <img src={mailIcon} alt="" class="icon" />
+          <a class="link" href="mailto:info@hudayigenclik.nl">
             info@hudayigenclik.nl
           </a>
         </span>
       </address>
 
-      <ul class="site-footer__socials">
-        <li class="site-footer__social-item">
-          <a class="site-footer__social-link" href="https://www.instagram.com/">
-            <img src={instagramIcon} alt="Instagram" class="site-footer__social-icon" />
+      <ul class="socials">
+        <li>
+          <a class="social-link" href="https://www.instagram.com/">
+            <img src={instagramIcon} alt="Instagram" class="social-icon" />
           </a>
         </li>
       </ul>
-
-      <a class="site-footer__donation-link" href="/doneren">Word donateur</a>
     </section>
   </div>
 
-  <div class="site-footer__bottom">
+  <div class="bottom">
     <p>© 2026 Hüdayi Gençlik · Tüm hakları saklıdır</p>
+    <a class="donation-link" href="/doneren">Word donateur</a>
   </div>
 </footer>
 
 <style>
-  .site-footer {
+  .footer {
     color: var(--c-creme, var(--c-creme-hex));
   }
 
-  .site-footer__inner {
+  .inner {
     display: grid;
     gap: 3.25rem;
     padding: 3.5rem 1.5rem 2.5rem;
   }
 
-  .site-footer__brand,
-  .site-footer__navigation,
-  .site-footer__contact {
+  .brand,
+  .navigation,
+  .contact {
     display: grid;
     gap: 1.5rem;
   }
 
-  .site-footer__title,
+  .title,
   .heading,
-  .site-footer__tagline,
-  .site-footer__list,
-  .site-footer__address,
-  .site-footer__socials,
-  .site-footer__bottom p {
+  .tagline,
+  .list,
+  .address,
+  .socials,
+  .bottom p {
     margin: 0;
   }
 
-  .site-footer__title {
+  .title {
     color: var(--c-wit, var(--c-wit-hex));
     font-family: var(--font-primary);
     font-size: 1.25rem;
@@ -108,7 +107,7 @@
     line-height: 1.2;
   }
 
-  .site-footer__tagline {
+  .tagline {
     max-width: 18rem;
     font-family: var(--font-primary);
     font-size: 0.95rem;
@@ -126,15 +125,15 @@
     text-transform: uppercase;
   }
 
-  .site-footer__list,
-  .site-footer__socials {
+  .list {
     display: grid;
     gap: 1.15rem;
     padding: 0;
     list-style: none;
   }
 
-  .site-footer__link {
+  .link {
+    position: relative;
     color: inherit;
     font-family: var(--font-primary);
     font-size: 0.95rem;
@@ -142,19 +141,19 @@
     text-decoration: none;
   }
 
-  .site-footer__link:focus-visible,
-  .site-footer__social-link:focus-visible {
+  .link:focus-visible,
+  .social-link:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 0.25rem;
   }
 
-  .site-footer__address {
+  .address {
     display: grid;
     gap: 1.15rem;
     font-style: normal;
   }
 
-  .site-footer__contact-row {
+  .contact-row {
     display: grid;
     grid-template-columns: 1rem 1fr;
     gap: 0.75rem;
@@ -164,19 +163,22 @@
     line-height: 1.4;
   }
 
-  .site-footer__icon {
+  .icon {
     width: 1rem;
     height: 1rem;
     margin-top: 0.15rem;
   }
 
-  .site-footer__socials {
-    margin-top: 0.25rem;
+  .socials {
     display: flex;
     align-items: center;
+    gap: 1.15rem;
+    margin-top: 0.25rem;
+    padding: 0;
+    list-style: none;
   }
 
-  .site-footer__social-link {
+  .social-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -188,13 +190,12 @@
     text-decoration: none;
   }
 
-  .site-footer__donation-link {
+  .donation-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     justify-self: start;
     min-height: 3.25rem;
-    margin-top: 1rem;
     padding: 0 1.75rem;
     border: 1.5px solid currentColor;
     border-radius: 999px;
@@ -206,26 +207,115 @@
     text-decoration: none;
   }
 
-  .site-footer__donation-link:focus-visible {
+  .donation-link:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 0.25rem;
   }
 
-  .site-footer__social-icon {
+  .social-icon {
     width: 1.1rem;
     height: 1.1rem;
   }
 
-  .site-footer__bottom {
-    margin: 0 1.25rem;
-    padding: 1.25rem 0 1.5rem;
+  .bottom {
+    display: grid;
+    gap: 1.5rem;
+    margin: 0 1.5rem;
+    padding: 1.5rem 0 2rem;
     border-top: 1px solid rgb(244 235 204 / 0.65);
   }
 
-  .site-footer__bottom p {
+  .bottom p {
     max-width: 18rem;
     font-family: var(--font-primary);
     font-size: 0.85rem;
     line-height: 1.45;
+  }
+
+  @media (min-width: 768px) {
+    .inner {
+      grid-template-columns: 1.25fr 0.75fr 1fr;
+      gap: 4rem;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 4.5rem var(--container-pad) 3.5rem;
+    }
+
+    .brand,
+    .navigation,
+    .contact {
+      align-content: start;
+    }
+
+    .tagline {
+      max-width: 16rem;
+    }
+
+    .contact-row {
+      grid-template-columns: 1rem minmax(0, 1fr);
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin: 0 var(--container-pad);
+      padding: 2rem 0 3.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .inner {
+        max-width: none;
+        padding-inline: clamp(1rem, 2vw, 2rem);
+      }
+
+      .bottom {
+        margin-inline: clamp(1rem, 2vw, 2rem);
+      }
+
+      .navigation .link::after {
+        position: absolute;
+        left: 0;
+        bottom: -0.375rem;
+        width: 100%;
+        height: 0.125rem;
+        border-radius: 9999px;
+        background-color: currentColor;
+        content: '';
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .navigation .link:hover::after,
+      .navigation .link:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .social-link {
+        transition:
+          background-color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .social-link:hover,
+      .social-link:focus-visible {
+        background-color: rgb(247 225 199 / 0.18);
+        transform: translateY(-2px);
+      }
+
+      .donation-link {
+        transition:
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .donation-link:hover,
+      .donation-link:focus-visible {
+        background-color: var(--c-creme, var(--c-creme-hex));
+        color: var(--c-nachtgroen, var(--c-nachtgroen-hex));
+      }
+    }
   }
 </style>
