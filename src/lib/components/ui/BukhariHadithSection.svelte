@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
     import { fade } from 'svelte/transition';
-    import { getLocale } from '$lib/paraglide/runtime';
+    import { page } from '$app/state';
     import * as m from '$lib/paraglide/messages';
     import { writable } from 'svelte/store';
     import { BukhariHadiths } from '$lib';
@@ -10,6 +10,20 @@
     const currentIndex = writable(0);
     let prefersReducedMotion = $state(false);
     let intervalId;
+
+    const activeLocale = $derived.by(() => {
+        const locale = page.url.pathname.split('/')[1];
+
+        if (locale === 'nl' || locale === 'en' || locale === 'tr') {
+            return locale;
+        }
+
+        return 'tr';
+    });
+
+    function getHadithTranslation(hadith) {
+        return hadith?.translations?.[activeLocale] ?? hadith?.translations?.tr ?? hadith?.turkish ?? '';
+    }
 
     function stopRotation() {
         if (!intervalId) return;
@@ -78,8 +92,8 @@
                                 <h3 class="hadith-title">
                                     {m.hadith_source_bukhari()} [{hadiths[$currentIndex].hadith_number}]
                                 </h3>
-                                <p class="hadith-translation" lang={getLocale()} dir="ltr">
-                                    {hadiths[$currentIndex].turkish}
+                                <p class="hadith-translation" lang={activeLocale} dir="ltr">
+                                    {getHadithTranslation(hadiths[$currentIndex])}
                                 </p>
                             </figcaption>
                         </figure>
