@@ -1,13 +1,3 @@
-<svelte:head>
-    <noscript>
-        <style>
-            .hadith-single {
-                display: none !important;
-            }
-        </style>
-    </noscript>
-</svelte:head>
-
 <script>
     import { onMount, onDestroy } from 'svelte';
     import { fade } from 'svelte/transition';
@@ -211,12 +201,6 @@
         line-height: 1.5;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-        .hadith-item {
-            transition: none !important;
-            animation: none !important;
-        }
-    }
 
     @media (min-width: 768px) {
         .bukhari-hadith-section__inner {
@@ -227,7 +211,7 @@
 
         .hadith-single {
             max-width: 42rem;
-            margin-inline: auto;
+            margin-inline: 0 auto;
         }
 
         .hadith-item {
@@ -236,35 +220,60 @@
 
         .hadith-figure {
             gap: 2.15rem;
-            justify-items: center;
+            justify-items: start;
             align-content: center;
+            width: min(100%, 42rem);
+            margin-inline: 0 auto;
         }
 
         .hadith-text {
-            justify-self: center;
+            justify-self: start;
             max-width: 36rem;
             font-size: clamp(2.4rem, 5.4vw, 3.2rem);
             line-height: 1.55;
-            text-align: center;
+            text-align: left;
         }
 
         .hadith-caption {
             gap: 1.7rem;
-            justify-items: center;
+            justify-items: start;
         }
 
         .hadith-title {
             max-width: 36rem;
             font-size: 1rem;
-            text-align: center;
+            text-align: left;
         }
 
         .hadith-translation {
             max-width: 35rem;
             font-size: 1.05rem;
             line-height: 1.7;
-            text-align: center;
+            text-align: left;
             letter-spacing: -0.02em;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .hadith-single {
+            margin-inline: 14rem auto;
+        }
+
+        .hadith-text {
+            font-size: clamp(3rem, 4.8vw, 4rem);
+        }
+
+        .hadith-title {
+            font-size: 1.15rem;
+        }
+
+        .hadith-translation {
+            font-size: 1.25rem;
+        }
+
+        .hadith-figure {
+            width: min(100%, 48rem);
+            margin-inline: 0 auto;
         }
     }
 </style>
