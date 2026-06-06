@@ -1,3 +1,7 @@
+<script>
+	import * as m from '$lib/paraglide/messages';
+</script>
+
 <svelte:head>
     <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
     <script src="https://elfsightcdn.com/platform.js" async></script>
