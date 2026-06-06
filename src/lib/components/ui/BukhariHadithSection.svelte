@@ -175,7 +175,7 @@
         max-width: 18.5rem;
         margin: 0;
         font-family: var(--font-primary);
-        font-size: 1rem;
+        font-size: 16px;
         font-weight: var(--fw-bold);
         line-height: 1.45;
         text-align: center;
@@ -241,7 +241,7 @@
 
         .hadith-title {
             max-width: 36rem;
-            font-size: 1rem;
+            font-size: 16px;
             text-align: left;
         }
 
@@ -261,10 +261,6 @@
 
         .hadith-text {
             font-size: 48px;
-        }
-
-        .hadith-title {
-            font-size: 1.15rem;
         }
 
         .hadith-translation {
