@@ -32,7 +32,7 @@
 		<div class="bg-text">
 			<p>ٱلرَّحْمَٰنُ</p>
 		</div>
-		<!-- live region helps screen readers notice updates -->
+		<!-- aria-live notifies screen readers when the verse updates -->
 		<div aria-live="polite" class="verse-single" role="status">
 			{#if verses.length}
 				{#key $currentIndex}
@@ -50,21 +50,6 @@
 				<p>No verses available.</p>
 			{/if}
 		</div>
-
-		<!-- Progressive enhancement fallback: if JS is disabled, show the full list inside <noscript> -->
-		<noscript>
-			<ul class="verse-list">
-				{#each verses as verse (verse.id)}
-					<li class="verse-item">
-						<p class="verse-text">{verse.arabic}</p>
-						<h3 class="verse-title">
-							{verse.chapter_name} [{verse.chapter_number}:{verse.verse_number}]
-						</h3>
-						<p class="verse-translation">{verse.turkish}</p>
-					</li>
-				{/each}
-			</ul>
-		</noscript>
 	</div>
 </section>
 
@@ -100,13 +85,7 @@
 		overflow: hidden;
 	}
 
-	.verse-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.verse-item {
+.verse-item {
 		grid-area: 1 / 1;
 		width: 100%;
 		box-sizing: border-box;
