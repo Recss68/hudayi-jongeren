@@ -1,7 +1,6 @@
 <svelte:head>
     <noscript>
         <style>
-            /* Verberg de interactieve carrousel als JavaScript uitstaat */
             .hadith-single {
                 display: none !important;
             }
@@ -142,8 +141,6 @@
         z-index: 1;
     }
 
-    /* Noscript is hier verwijderd, dat regelt de browser/Svelte:head nu */
-
     .hadith-item {
         grid-area: 1 / 1;
         width: 100%;
@@ -218,6 +215,56 @@
         .hadith-item {
             transition: none !important;
             animation: none !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .bukhari-hadith-section__inner {
+            min-height: 33rem;
+            padding: 5rem 3.5rem 5.5rem;
+            place-items: center;
+        }
+
+        .hadith-single {
+            max-width: 42rem;
+            margin-inline: auto;
+        }
+
+        .hadith-item {
+            min-height: 23rem;
+        }
+
+        .hadith-figure {
+            gap: 2.15rem;
+            justify-items: center;
+            align-content: center;
+        }
+
+        .hadith-text {
+            justify-self: center;
+            max-width: 36rem;
+            font-size: clamp(2.4rem, 5.4vw, 3.2rem);
+            line-height: 1.55;
+            text-align: center;
+        }
+
+        .hadith-caption {
+            gap: 1.7rem;
+            justify-items: center;
+        }
+
+        .hadith-title {
+            max-width: 36rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .hadith-translation {
+            max-width: 35rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            text-align: center;
+            letter-spacing: -0.02em;
         }
     }
 </style>
