@@ -37,5 +37,7 @@
 	"blog_read_more": "Read more",
 	"header_menu_toggle": "Open or close menu",
 	"header_menu_close": "Close menu",
-	"header_language_select": "Choose language"
+	"header_language_select": "Choose language",
+	"footer_address": "Voorbeeldstraat 12, 3000 AB Rotterdam",
+	"footer_donation_cta": "Become a donor"
 }

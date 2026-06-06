@@ -45,7 +45,7 @@
       <address class="address">
         <span class="contact-row">
           <img src={locationIcon} alt="" class="icon" />
-          <span>Voorbeeldstraat 12, 3000 AB Rotterdam</span>
+          <span>{m.footer_address()}</span>
         </span>
 
         <span class="contact-row">
@@ -68,7 +68,7 @@
 
   <div class="bottom">
     <p>{m.footer_copyright()}</p>
-    <a class="donation-link" href="/doneren">Word donateur</a>
+    <a class="donation-link" href="/doneren">{m.footer_donation_cta()}</a>
   </div>
 </footer>
 

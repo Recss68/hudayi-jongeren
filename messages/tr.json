@@ -37,5 +37,7 @@
 	"blog_read_more": "Devamını oku",
 	"header_menu_toggle": "Menüyü aç veya kapat",
 	"header_menu_close": "Menüyü kapat",
-	"header_language_select": "Dil seç"
+	"header_language_select": "Dil seç",
+	"footer_address": "Voorbeeldstraat 12, 3000 AB Rotterdam",
+	"footer_donation_cta": "Bağışçı ol"
 }

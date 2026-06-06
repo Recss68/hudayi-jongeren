@@ -37,5 +37,7 @@
 	"blog_read_more": "Meer lezen",
 	"header_menu_toggle": "Menu openen of sluiten",
 	"header_menu_close": "Menu sluiten",
-	"header_language_select": "Taal kiezen"
+	"header_language_select": "Taal kiezen",
+	"footer_address": "Voorbeeldstraat 12, 3000 AB Rotterdam",
+	"footer_donation_cta": "Word donateur"
 }
