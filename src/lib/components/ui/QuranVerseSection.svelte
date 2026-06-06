@@ -2,6 +2,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { page } from '$app/state';
+	import * as m from '$lib/paraglide/messages';
 	import { Verses } from '$lib';
 
 	const verses = Array.isArray(Verses) ? Verses : [];
@@ -62,7 +63,7 @@
 					</article>
 				{/key}
 			{:else}
-				<p>No verses available.</p>
+				<p>{m.quran_empty()}</p>
 			{/if}
 		</div>
 	</div>
