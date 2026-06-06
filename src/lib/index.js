@@ -3,6 +3,7 @@
 // UI
 export { default as QuranVerseSection } from './components/ui/QuranVerseSection.svelte';
 export { default as BukhariHadithSection } from './components/ui/BukhariHadithSection.svelte';
+export { default as InstagramWidget } from './components/ui/InstagramWidget.svelte';
 
 // Data
 export { default as Verses } from './data/quran-verses.json';
