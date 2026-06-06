@@ -1,6 +1,7 @@
 <script>
 	import '$lib/styles/hj-styles.css';
 	import Header from '$lib/components/header.svelte';
+	import HadithSection from '$lib/components/ui/BukhariHadithSection.svelte';
 	import Footer from '$lib/components/SiteFooter.svelte';
 
 	let { children } = $props();
@@ -10,6 +11,7 @@
 
 <main>
 	{@render children()}
+	<HadithSection />
 </main>
 
 <Footer />

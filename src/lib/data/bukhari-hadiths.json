@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Vahyin Başlangıcı",
+    "hadith_number": 1,
+    "arabic": "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ",
+    "transliteration": "İnnemel a'malu binniyyat",
+    "turkish": "Ameller ancak niyetlere göredir.",
+    "theme": "niyet"
+  },
+  {
+    "id": 2,
+    "source": "Sahih al-Bukhari",
+    "book_name": "İman",
+    "hadith_number": 10,
+    "arabic": "المُسْلِمُ مَنْ سَلِمَ المُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
+    "transliteration": "El muslimu men selimel muslimune min lisanihi ve yedih",
+    "turkish": "Müslüman, diğer Müslümanların elinden ve dilinden güvende olduğu kimsedir.",
+    "theme": "ahlak"
+  },
+  {
+    "id": 3,
+    "source": "Sahih al-Bukhari",
+    "book_name": "İman",
+    "hadith_number": 13,
+    "arabic": "لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
+    "transliteration": "La yu'minu ehadukum hatta yuhibbe li ehihi ma yuhibbu li nefsih",
+    "turkish": "Sizden biri, kendisi için sevdiğini kardeşi için de sevmedikçe iman etmiş olmaz.",
+    "theme": "kardeşlik"
+  },
+  {
+    "id": 4,
+    "source": "Sahih al-Bukhari",
+    "book_name": "İman",
+    "hadith_number": 39,
+    "arabic": "إِنَّ الدِّينَ يُسْرٌ",
+    "transliteration": "İnned dine yusr",
+    "turkish": "Şüphesiz din kolaylıktır.",
+    "theme": "kolaylık"
+  },
+  {
+    "id": 5,
+    "source": "Sahih al-Bukhari",
+    "book_name": "İlim",
+    "hadith_number": 69,
+    "arabic": "يَسِّرُوا وَلاَ تُعَسِّرُوا وَبَشِّرُوا وَلاَ تُنَفِّرُوا",
+    "transliteration": "Yessiru ve la tuassiru, beşşiru ve la tuneffiru",
+    "turkish": "Kolaylaştırın, zorlaştırmayın; müjdeleyin, nefret ettirmeyin.",
+    "theme": "merhamet"
+  },
+  {
+    "id": 6,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Ezan",
+    "hadith_number": 602,
+    "arabic": "إِذَا سَمِعْتُمُ النِّدَاءَ فَقُولُوا مِثْلَ مَا يَقُولُ المُؤَذِّنُ",
+    "transliteration": "İza semi'tumun nidae fe kulu misle ma yekulul muezzin",
+    "turkish": "Ezanı işittiğinizde müezzinin söylediği gibi söyleyin.",
+    "theme": "ibadet"
+  },
+  {
+    "id": 7,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Namaz",
+    "hadith_number": 481,
+    "arabic": "المُؤْمِنُ لِلْمُؤْمِنِ كَالْبُنْيَانِ يَشُدُّ بَعْضُهُ بَعْضًا",
+    "transliteration": "El mu'minu lil mu'mini kel bunyan, yeşuddu ba'duhu ba'da",
+    "turkish": "Mümin, mümin için parçaları birbirini destekleyen bir bina gibidir.",
+    "theme": "birlik"
+  },
+  {
+    "id": 8,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Cihad",
+    "hadith_number": 2989,
+    "arabic": "وَالكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ",
+    "transliteration": "Vel kelimetut tayyibetu sadaka",
+    "turkish": "Güzel söz sadakadır.",
+    "theme": "iyilik"
+  },
+  {
+    "id": 9,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Peygamberler",
+    "hadith_number": 3461,
+    "arabic": "بَلِّغُوا عَنِّي وَلَوْ آيَةً",
+    "transliteration": "Belligu anni ve lev ayeh",
+    "turkish": "Benden bir ayet bile olsa insanlara ulaştırın.",
+    "theme": "tebliğ"
+  },
+  {
+    "id": 10,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Kur'an'ın Faziletleri",
+    "hadith_number": 5027,
+    "arabic": "خَيْرُكُمْ مَنْ تَعَلَّمَ القُرْآنَ وَعَلَّمَهُ",
+    "transliteration": "Hayrukum men teallemel Kur'ane ve allemeh",
+    "turkish": "Sizin en hayırlınız Kur'an'ı öğrenen ve öğreten kişidir.",
+    "theme": "kur'an"
+  },
+  {
+    "id": 11,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Edep",
+    "hadith_number": 6018,
+    "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَاليَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+    "transliteration": "Men kane yu'minu billahi vel yevmil ahiri fel yekul hayran ev li yasmut",
+    "turkish": "Allah'a ve ahiret gününe iman eden ya hayır söylesin ya da sussun.",
+    "theme": "dil"
+  },
+  {
+    "id": 12,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Edep",
+    "hadith_number": 6021,
+    "arabic": "كُلُّ مَعْرُوفٍ صَدَقَةٌ",
+    "transliteration": "Kullu ma'rufin sadaka",
+    "turkish": "Her iyilik sadakadır.",
+    "theme": "iyilik"
+  },
+  {
+    "id": 13,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Edep",
+    "hadith_number": 5997,
+    "arabic": "مَنْ لاَ يَرْحَمُ لاَ يُرْحَمُ",
+    "transliteration": "Men la yerham, la yurham",
+    "turkish": "Merhamet etmeyene merhamet edilmez.",
+    "theme": "merhamet"
+  },
+  {
+    "id": 14,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Kalbi Yumuşatan Hadisler",
+    "hadith_number": 6446,
+    "arabic": "لَيْسَ الغِنَى عَنْ كَثْرَةِ العَرَضِ وَلَكِنَّ الغِنَى غِنَى النَّفْسِ",
+    "transliteration": "Leysel gina an kesretil arad, ve lakinnel gina ginen nefs",
+    "turkish": "Zenginlik mal çokluğu değildir; asıl zenginlik gönül zenginliğidir.",
+    "theme": "kanaat"
+  },
+  {
+    "id": 15,
+    "source": "Sahih al-Bukhari",
+    "book_name": "Kalbi Yumuşatan Hadisler",
+    "hadith_number": 6416,
+    "arabic": "نِعْمَتَانِ مَغْبُونٌ فِيهِمَا كَثِيرٌ مِنَ النَّاسِ الصِّحَّةُ وَالفَرَاغُ",
+    "transliteration": "Ni'metani mağbunun fihima kesirun minen nas: es-sihhatu vel ferag",
+    "turkish": "İnsanların çoğunun kıymetini bilmediği iki nimet vardır: sağlık ve boş vakit.",
+    "theme": "şükür"
+  }
+]
