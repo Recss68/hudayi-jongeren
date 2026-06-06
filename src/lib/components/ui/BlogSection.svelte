@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { resolve } from '$app/paths';
+    import * as m from '$lib/paraglide/messages';
     import DummyArticles from '$lib/data/dummy-articles.json';
 
     const articles = Array.isArray(DummyArticles) ? DummyArticles : [];
@@ -29,8 +30,8 @@
 <section class="section blog-section">
     <div class="section-inner">
         <div class="section-header">
-            <h2>Bizden Haberler</h2>
-            <a href={resolve('/haberler')} class="header-link">Tüm haberleri gör</a>
+            <h2>{m.blog_heading()}</h2>
+            <a href={resolve('/haberler')} class="header-link">{m.blog_view_all()}</a>
         </div>
 
         <div class="articles-wrapper">
@@ -42,7 +43,7 @@
                             <span class="card-category">{article.categorie}</span>
                             <h3 class="card-title">{article.titel}</h3>
                             <p class="card-excerpt">{article.excerpt}</p>
-                            <a href={resolve(`/haberler/${article.slug}`)} class="card-link">Meer lezen →</a>
+                            <a href={resolve(`/haberler/${article.slug}`)} class="card-link">{m.blog_read_more()} →</a>
                         </div>
                     </li>
                 {/each}

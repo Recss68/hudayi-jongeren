@@ -31,5 +31,8 @@
 	"footer_activities": "Activities",
 	"footer_donate": "Donate",
 	"quran_empty": "No verses available.",
-	"instagram_heading": "Follow us on Instagram"
+	"instagram_heading": "Follow us on Instagram",
+	"blog_heading": "News from us",
+	"blog_view_all": "View all posts",
+	"blog_read_more": "Read more"
 }
