@@ -34,5 +34,8 @@
 	"instagram_heading": "Follow us on Instagram",
 	"blog_heading": "News from us",
 	"blog_view_all": "View all posts",
-	"blog_read_more": "Read more"
+	"blog_read_more": "Read more",
+	"header_menu_toggle": "Open or close menu",
+	"header_menu_close": "Close menu",
+	"header_language_select": "Choose language"
 }

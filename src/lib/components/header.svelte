@@ -43,13 +43,13 @@
 			<input type="checkbox" id="menu-toggle-checkbox" class="sr-only menu-checkbox" />
 
 			<label for="menu-toggle-checkbox" class="menu-toggle-btn">
-				<span class="sr-only">Menu openen of sluiten</span>
+				<span class="sr-only">{m.header_menu_toggle()}</span>
 				<img src={hamburgerIcon} alt="" class="menu-icon menu-icon--hamburger" />
 				<img src={crossIcon} alt="" class="menu-icon menu-icon--cross" />
 			</label>
 
 			<label for="menu-toggle-checkbox" class="menu-overlay">
-				<span class="sr-only">Menu sluiten</span>
+				<span class="sr-only">{m.header_menu_close()}</span>
 			</label>
 
 			<div class="menu-panel">
@@ -105,7 +105,7 @@
 			<details class="language-picker" bind:open={isLangPickerOpen}>
 				<summary class="language-summary">
 					<img src={currentLanguage.flag} alt="" class="flag-icon" />
-					<span class="sr-only">Dil seç: {currentLanguage.name}</span>
+					<span class="sr-only">{m.header_language_select()}: {currentLanguage.name}</span>
 					<img src={chevronIcon} alt="" class="chevron-icon" />
 				</summary>
 

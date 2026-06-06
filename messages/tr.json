@@ -34,5 +34,8 @@
 	"instagram_heading": "Bizi Instagram'da takip edin",
 	"blog_heading": "Bizden Haberler",
 	"blog_view_all": "Tüm haberleri gör",
-	"blog_read_more": "Devamını oku"
+	"blog_read_more": "Devamını oku",
+	"header_menu_toggle": "Menüyü aç veya kapat",
+	"header_menu_close": "Menüyü kapat",
+	"header_language_select": "Dil seç"
 }
