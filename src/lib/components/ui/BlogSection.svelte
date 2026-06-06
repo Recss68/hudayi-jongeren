@@ -7,6 +7,15 @@
 
     const articles = Array.isArray(DummyArticles) ? DummyArticles : [];
 
+    function getArticleContent(article) {
+        return article?.translations?.[activeLocale] ?? article?.translations?.tr ?? {
+            category: article?.categorie ?? '',
+            title: article?.titel ?? '',
+            excerpt: article?.excerpt ?? '',
+            date: article?.datum ?? ''
+        };
+    }
+
     let activeIndex = $state(0);
     let trackEl = $state();
 
@@ -48,11 +57,11 @@
             <ul class="article-track" bind:this={trackEl}>
                 {#each articles as article (article.id)}
                     <li class="article-card">
-                        <img src={article.afbeelding} alt={article.titel} class="card-image" />
+                        <img src={article.afbeelding} alt={getArticleContent(article).title} class="card-image" />
                         <div class="card-content">
-                            <span class="card-category">{article.categorie}</span>
-                            <h3 class="card-title">{article.titel}</h3>
-                            <p class="card-excerpt">{article.excerpt}</p>
+                            <span class="card-category">{getArticleContent(article).category}</span>
+                            <h3 class="card-title">{getArticleContent(article).title}</h3>
+                            <p class="card-excerpt">{getArticleContent(article).excerpt}</p>
                             <a href={resolve(`/haberler/${article.slug}`)} class="card-link">{m.blog_read_more({}, { locale: activeLocale })} →</a>
                         </div>
                     </li>

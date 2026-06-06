@@ -1,29 +1,89 @@
 [
-  {
-    "id": 1,
-    "categorie": "İlham",
-    "titel": "Namazda huzuru bul",
-    "excerpt": "Beş vakit namazın, uyarıcılar ve beklentilerle dolu yoğun bir dünyada nasıl bir çapa olabileceği üzerine.",
-    "afbeelding": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=600",
-    "datum": "2 juni 2025",
-    "slug": "namazda-huzuru-bul"
-  },
-  {
-    "id": 2,
-    "categorie": "Gençlik",
-    "titel": "Genç olmak ve Müslüman kalmak",
-    "excerpt": "Modern hayatın baskıları arasında kimliğini korumak ve inancını güçlendirmek için pratik öneriler.",
-    "afbeelding": "https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600",
-    "datum": "18 mei 2025",
-    "slug": "genc-olmak-ve-musluman-kalmak"
-  },
-  {
-    "id": 3,
-    "categorie": "Topluluk",
-    "titel": "Birlikte büyümek",
-    "excerpt": "Hüdayi Gençlik olarak bir araya gelmenin, paylaşmanın ve birbirimizi desteklemenin önemi üzerine.",
-    "afbeelding": "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=600",
-    "datum": "5 mei 2025",
-    "slug": "birlikte-buyumek"
-  }
+	{
+		"id": 1,
+		"categorie": "İlham",
+		"titel": "Namazda huzuru bul",
+		"excerpt": "Beş vakit namazın, uyarıcılar ve beklentilerle dolu yoğun bir dünyada nasıl bir çapa olabileceği üzerine.",
+		"afbeelding": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=600",
+		"datum": "2 juni 2025",
+		"slug": "namazda-huzuru-bul",
+		"translations": {
+			"tr": {
+				"category": "İlham",
+				"title": "Namazda huzuru bul",
+				"excerpt": "Beş vakit namazın, uyarıcılar ve beklentilerle dolu yoğun bir dünyada nasıl bir çapa olabileceği üzerine.",
+				"date": "2 juni 2025"
+			},
+			"nl": {
+				"category": "Inspiratie",
+				"title": "Rust vinden in het gebed",
+				"excerpt": "Over hoe de vijf dagelijkse gebeden houvast kunnen bieden in een drukke wereld vol prikkels en verwachtingen.",
+				"date": "2 juni 2025"
+			},
+			"en": {
+				"category": "Inspiration",
+				"title": "Finding peace in prayer",
+				"excerpt": "How the five daily prayers can become an anchor in a busy world full of distractions and expectations.",
+				"date": "June 2, 2025"
+			}
+		}
+	},
+	{
+		"id": 2,
+		"categorie": "Gençlik",
+		"titel": "Genç olmak ve Müslüman kalmak",
+		"excerpt": "Modern hayatın baskıları arasında kimliğini korumak ve inancını güçlendirmek için pratik öneriler.",
+		"afbeelding": "https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600",
+		"datum": "18 mei 2025",
+		"slug": "genc-olmak-ve-musluman-kalmak",
+		"translations": {
+			"tr": {
+				"category": "Gençlik",
+				"title": "Genç olmak ve Müslüman kalmak",
+				"excerpt": "Modern hayatın baskıları arasında kimliğini korumak ve inancını güçlendirmek için pratik öneriler.",
+				"date": "18 mei 2025"
+			},
+			"nl": {
+				"category": "Jongeren",
+				"title": "Jong zijn en moslim blijven",
+				"excerpt": "Praktische tips om je identiteit te bewaren en je geloof te versterken te midden van de druk van het moderne leven.",
+				"date": "18 mei 2025"
+			},
+			"en": {
+				"category": "Youth",
+				"title": "Being young and staying Muslim",
+				"excerpt": "Practical guidance for preserving your identity and strengthening your faith amid the pressures of modern life.",
+				"date": "May 18, 2025"
+			}
+		}
+	},
+	{
+		"id": 3,
+		"categorie": "Topluluk",
+		"titel": "Birlikte büyümek",
+		"excerpt": "Hüdayi Gençlik olarak bir araya gelmenin, paylaşmanın ve birbirimizi desteklemenin önemi üzerine.",
+		"afbeelding": "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=600",
+		"datum": "5 mei 2025",
+		"slug": "birlikte-buyumek",
+		"translations": {
+			"tr": {
+				"category": "Topluluk",
+				"title": "Birlikte büyümek",
+				"excerpt": "Hüdayi Gençlik olarak bir araya gelmenin, paylaşmanın ve birbirimizi desteklemenin önemi üzerine.",
+				"date": "5 mei 2025"
+			},
+			"nl": {
+				"category": "Gemeenschap",
+				"title": "Samen groeien",
+				"excerpt": "Over het belang van samenkomen, delen en elkaar ondersteunen binnen Hüdayi Gençlik.",
+				"date": "5 mei 2025"
+			},
+			"en": {
+				"category": "Community",
+				"title": "Growing together",
+				"excerpt": "On the importance of gathering, sharing, and supporting one another within Hüdayi Gençlik.",
+				"date": "May 5, 2025"
+			}
+		}
+	}
 ]
