@@ -7,7 +7,12 @@
 		"arabic": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
 		"transliteration": "Fe inne maal usri yusra",
 		"turkish": "Şüphesiz her zorlukla beraber bir kolaylık vardır.",
-		"theme": "umut"
+		"theme": "umut",
+		"translations": {
+			"tr": "Şüphesiz her zorlukla beraber bir kolaylık vardır.",
+			"nl": "Voorwaar, met de moeilijkheid komt gemak.",
+			"en": "Indeed, with hardship comes ease."
+		}
 	},
 	{
 		"id": 2,
@@ -17,7 +22,12 @@
 		"arabic": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
 		"transliteration": "La yukellifullahu nefsen illa vus'aha",
 		"turkish": "Allah hiç kimseye gücünün üstünde bir yük yüklemez.",
-		"theme": "güç"
+		"theme": "güç",
+		"translations": {
+			"tr": "Allah hiç kimseye gücünün üstünde bir yük yüklemez.",
+			"nl": "Allah belast geen ziel boven haar vermogen.",
+			"en": "Allah does not burden any soul beyond what it can bear."
+		}
 	},
 	{
 		"id": 3,
@@ -27,7 +37,12 @@
 		"arabic": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
 		"transliteration": "Ela bi zikrillahi tatmainnul kulub",
 		"turkish": "Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.",
-		"theme": "huzur"
+		"theme": "huzur",
+		"translations": {
+			"tr": "Bilin ki kalpler ancak Allah'ı anmakla huzur bulur.",
+			"nl": "Weet dat harten alleen door het gedenken van Allah rust vinden.",
+			"en": "Surely, hearts find peace only in the remembrance of Allah."
+		}
 	},
 	{
 		"id": 4,
@@ -37,7 +52,12 @@
 		"arabic": "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
 		"transliteration": "Ve men yetevekkel alallahi fe huve hasbuh",
 		"turkish": "Kim Allah'a güvenip dayanırsa, O ona yeter.",
-		"theme": "tevekkül"
+		"theme": "tevekkül",
+		"translations": {
+			"tr": "Kim Allah'a güvenip dayanırsa, O ona yeter.",
+			"nl": "Wie op Allah vertrouwt, voor hem is Hij voldoende.",
+			"en": "Whoever puts their trust in Allah, He is sufficient for them."
+		}
 	},
 	{
 		"id": 5,
@@ -47,7 +67,12 @@
 		"arabic": "لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",
 		"transliteration": "La taknetu min rahmetillah",
 		"turkish": "Allah'ın rahmetinden ümit kesmeyin.",
-		"theme": "umut"
+		"theme": "umut",
+		"translations": {
+			"tr": "Allah'ın rahmetinden ümit kesmeyin.",
+			"nl": "Wanhoop niet aan de barmhartigheid van Allah.",
+			"en": "Do not despair of the mercy of Allah."
+		}
 	},
 	{
 		"id": 6,
@@ -57,7 +82,12 @@
 		"arabic": "فَاذْكُرُونِي أَذْكُرْكُمْ",
 		"transliteration": "Fezkuruni ezkurkum",
 		"turkish": "Öyleyse beni anın ki ben de sizi anayım.",
-		"theme": "zikir"
+		"theme": "zikir",
+		"translations": {
+			"tr": "Öyleyse beni anın ki ben de sizi anayım.",
+			"nl": "Gedenk Mij, dan zal Ik jullie gedenken.",
+			"en": "So remember Me; I will remember you."
+		}
 	},
 	{
 		"id": 7,
@@ -67,7 +97,12 @@
 		"arabic": "وَلَا تَهِنُوا وَلَا تَحْزَنُوا",
 		"transliteration": "Ve la tehinu ve la tahzenu",
 		"turkish": "Gevşemeyin ve üzülmeyin.",
-		"theme": "motivasyon"
+		"theme": "motivasyon",
+		"translations": {
+			"tr": "Gevşemeyin ve üzülmeyin.",
+			"nl": "Verslap niet en treur niet.",
+			"en": "Do not lose heart and do not grieve."
+		}
 	},
 	{
 		"id": 8,
@@ -77,7 +112,12 @@
 		"arabic": "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
 		"transliteration": "İnnallahe maas sabirin",
 		"turkish": "Şüphesiz Allah sabredenlerle beraberdir.",
-		"theme": "sabır"
+		"theme": "sabır",
+		"translations": {
+			"tr": "Şüphesiz Allah sabredenlerle beraberdir.",
+			"nl": "Voorwaar, Allah is met de geduldigen.",
+			"en": "Indeed, Allah is with those who are patient."
+		}
 	},
 	{
 		"id": 9,
@@ -87,7 +127,12 @@
 		"arabic": "ادْعُونِي أَسْتَجِبْ لَكُمْ",
 		"transliteration": "Ud'uni estecib lekum",
 		"turkish": "Bana dua edin, duanıza karşılık vereyim.",
-		"theme": "dua"
+		"theme": "dua",
+		"translations": {
+			"tr": "Bana dua edin, duanıza karşılık vereyim.",
+			"nl": "Roep Mij aan, dan zal Ik jullie verhoren.",
+			"en": "Call upon Me; I will respond to you."
+		}
 	},
 	{
 		"id": 10,
@@ -97,7 +142,12 @@
 		"arabic": "وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ",
 		"transliteration": "Ve nahnu akrabu ileyhi min hablil verid",
 		"turkish": "Biz ona şah damarından daha yakınız.",
-		"theme": "yakınlık"
+		"theme": "yakınlık",
+		"translations": {
+			"tr": "Biz ona şah damarından daha yakınız.",
+			"nl": "Wij zijn hem dichterbij dan zijn halsslagader.",
+			"en": "We are closer to him than his jugular vein."
+		}
 	},
 	{
 		"id": 11,
@@ -107,7 +157,12 @@
 		"arabic": "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ",
 		"transliteration": "Ve le sevfe yu'tike rabbuke fe terda",
 		"turkish": "Rabbin sana verecek ve sen razı olacaksın.",
-		"theme": "umut"
+		"theme": "umut",
+		"translations": {
+			"tr": "Rabbin sana verecek ve sen razı olacaksın.",
+			"nl": "Jouw Heer zal jou geven, en jij zult tevreden zijn.",
+			"en": "Your Lord will give you, and you will be pleased."
+		}
 	},
 	{
 		"id": 12,
@@ -117,7 +172,12 @@
 		"arabic": "فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللَّهِ",
 		"transliteration": "Fe iza azemte fe tevekkel alallah",
 		"turkish": "Bir işe karar verdiğinde Allah'a güvenip dayan.",
-		"theme": "tevekkül"
+		"theme": "tevekkül",
+		"translations": {
+			"tr": "Bir işe karar verdiğinde Allah'a güvenip dayan.",
+			"nl": "Wanneer je een besluit hebt genomen, vertrouw dan op Allah.",
+			"en": "When you have decided, then put your trust in Allah."
+		}
 	},
 	{
 		"id": 13,
@@ -127,7 +187,12 @@
 		"arabic": "وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ",
 		"transliteration": "Ve men yu'min billahi yehdi kalbeh",
 		"turkish": "Kim Allah'a inanırsa, Allah onun kalbini doğruya yöneltir.",
-		"theme": "iman"
+		"theme": "iman",
+		"translations": {
+			"tr": "Kim Allah'a inanırsa, Allah onun kalbini doğruya yöneltir.",
+			"nl": "Wie in Allah gelooft, diens hart leidt Allah.",
+			"en": "Whoever believes in Allah, He guides their heart."
+		}
 	},
 	{
 		"id": 14,
@@ -137,7 +202,12 @@
 		"arabic": "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",
 		"transliteration": "Vellezine cahedu fina le nehdiyennehum subulena",
 		"turkish": "Bizim uğrumuzda gayret edenleri elbette kendi yollarımıza ulaştırırız.",
-		"theme": "çaba"
+		"theme": "çaba",
+		"translations": {
+			"tr": "Bizim uğrumuzda gayret edenleri elbette kendi yollarımıza ulaştırırız.",
+			"nl": "Degenen die zich voor Ons inspannen, zullen Wij zeker naar Onze wegen leiden.",
+			"en": "As for those who strive for Us, We will surely guide them to Our ways."
+		}
 	},
 	{
 		"id": 15,
@@ -147,6 +217,11 @@
 		"arabic": "فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ",
 		"transliteration": "Fe inni karib, ucibu da'veted dai iza dean",
 		"turkish": "Ben kullarıma çok yakınım; bana dua edenin duasına cevap veririm.",
-		"theme": "dua"
+		"theme": "dua",
+		"translations": {
+			"tr": "Ben kullarıma çok yakınım; bana dua edenin duasına cevap veririm.",
+			"nl": "Ik ben nabij; Ik beantwoord de smeekbede van degene die Mij aanroept.",
+			"en": "I am near; I answer the prayer of the supplicant when they call upon Me."
+		}
 	}
 ]
