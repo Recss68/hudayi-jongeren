@@ -2,7 +2,7 @@
   import heroImage from '$lib/assets/test.png';
   import arrowIcon from '$lib/assets/arrow.svg';
   import dividerImage from '$lib/assets/divider.svg';
-  import { QuranVerseSection, InstagramWidget } from '$lib';
+  import { QuranVerseSection, InstagramWidget, BukhariHadithSection, BlogSection } from '$lib';
 </script>
 
 <section class="home-hero">
@@ -45,6 +45,10 @@
 </section>
 
 <QuranVerseSection />
+
+<BlogSection />
+
+<BukhariHadithSection />
 
 <InstagramWidget />
 

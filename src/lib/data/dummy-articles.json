@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "categorie": "İlham",
+    "titel": "Namazda huzuru bul",
+    "excerpt": "Beş vakit namazın, uyarıcılar ve beklentilerle dolu yoğun bir dünyada nasıl bir çapa olabileceği üzerine.",
+    "afbeelding": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=600",
+    "datum": "2 juni 2025",
+    "slug": "namazda-huzuru-bul"
+  },
+  {
+    "id": 2,
+    "categorie": "Gençlik",
+    "titel": "Genç olmak ve Müslüman kalmak",
+    "excerpt": "Modern hayatın baskıları arasında kimliğini korumak ve inancını güçlendirmek için pratik öneriler.",
+    "afbeelding": "https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600",
+    "datum": "18 mei 2025",
+    "slug": "genc-olmak-ve-musluman-kalmak"
+  },
+  {
+    "id": 3,
+    "categorie": "Topluluk",
+    "titel": "Birlikte büyümek",
+    "excerpt": "Hüdayi Gençlik olarak bir araya gelmenin, paylaşmanın ve birbirimizi desteklemenin önemi üzerine.",
+    "afbeelding": "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=600",
+    "datum": "5 mei 2025",
+    "slug": "birlikte-buyumek"
+  }
+]
