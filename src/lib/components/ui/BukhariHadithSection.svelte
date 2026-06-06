@@ -87,28 +87,6 @@
                 <p class="hadith-empty">Hadis bulunamadı.</p>
             {/if}
         </div>
-
-        <noscript>
-            {#if hadiths.length}
-                <article class="hadith-item hadith-item--fallback">
-                    <figure class="hadith-figure">
-                        <blockquote class="hadith-text" lang="ar" dir="rtl">
-                            <p>{hadiths[0].arabic}</p>
-                        </blockquote>
-
-                        <figcaption class="hadith-caption">
-                            <h3 class="hadith-title">
-                                {hadiths[0].source} [{hadiths[0].hadith_number}]
-                            </h3>
-                            <p class="hadith-translation" lang="tr" dir="ltr">
-                                {hadiths[0].turkish}
-                            </p>
-                        </figcaption>
-                    </figure>
-                </article>
-            {/if}
-        </noscript>
-        
     </div>
 </section>
 
@@ -157,7 +135,8 @@
         font-size: 30px;
         font-weight: 400;
         line-height: 1.9;
-        text-align: left;
+        text-align: right;
+        direction: rtl;
     }
 
     .hadith-text p {
@@ -172,6 +151,7 @@
 
     .hadith-title {
         width: 100%;
+        justify-self: center;
         max-width: 18.5rem;
         margin: 0;
         font-family: var(--font-primary);
@@ -241,8 +221,9 @@
 
         .hadith-title {
             max-width: 36rem;
+            justify-self: center;
             font-size: 16px;
-            text-align: left;
+            text-align: center;
         }
 
         .hadith-translation {
