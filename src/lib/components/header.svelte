@@ -7,6 +7,7 @@
 	import ukFlag from '$lib/assets/unitedkingdom.svg';
 	import chevronIcon from '$lib/assets/vector.svg';
 	import { page } from '$app/state';
+	import * as m from '$lib/paraglide/messages';
 
 	const currentLanguage = $derived.by(() => {
 		if (page.url.pathname.startsWith('/nl')) {
@@ -53,23 +54,23 @@
 
 			<div class="menu-panel">
 				<ul class="menu-list">
-					<li><a href="/">Ana Sayfa</a></li>
+					<li><a href="/">{m.header_home()}</a></li>
 					<li>
 						<details class="mobile-blog-dropdown">
 							<summary class="mobile-blog-summary">
-								<span>Blog</span>
+								<span>{m.header_blog()}</span>
 								<img src={chevronIcon} alt="" class="mobile-blog-chevron-icon" />
 							</summary>
 
 							<ul class="mobile-blog-list">
-								<li><a href="/blog">Tüm bloglar</a></li>
-								<li><a href="/activiteiten">Etkinlikler</a></li>
-								<li><a href="/lezingen">Sohbetler</a></li>
+								<li><a href="/blog">{m.header_all_blogs()}</a></li>
+								<li><a href="/activiteiten">{m.header_events()}</a></li>
+								<li><a href="/lezingen">{m.header_talks()}</a></li>
 							</ul>
 						</details>
 					</li>
-					<li><a href="/contact">İletişim</a></li>
-					<li><a href="/doneren">Online bağış</a></li>
+					<li><a href="/contact">{m.header_contact()}</a></li>
+					<li><a href="/doneren">{m.header_donate()}</a></li>
 				</ul>
 			</div>
 		</div>
@@ -77,27 +78,27 @@
 		<a href="/" class="brand-link">Hüdayi Gençlik</a>
 
 		<ul class="desktop-nav-list">
-			<li><a href="/">Ana Sayfa</a></li>
+			<li><a href="/">{m.header_home()}</a></li>
 			<li class="desktop-blog-item">
 				<details class="desktop-blog-dropdown">
 					<summary class="desktop-blog-summary">
-						<span>Blog</span>
+						<span>{m.header_blog()}</span>
 						<img src={chevronIcon} alt="" class="desktop-chevron-icon" />
 					</summary>
 
 					<ul class="desktop-blog-list">
-						<li><a href="/blog"><span>Tüm bloglar</span></a></li>
-						<li><a href="/activiteiten"><span>Etkinlikler</span></a></li>
-						<li><a href="/lezingen"><span>Sohbetler</span></a></li>
+						<li><a href="/blog"><span>{m.header_all_blogs()}</span></a></li>
+						<li><a href="/activiteiten"><span>{m.header_events()}</span></a></li>
+						<li><a href="/lezingen"><span>{m.header_talks()}</span></a></li>
 					</ul>
 				</details>
 			</li>
-			<li><a href="/contact">İletişim</a></li>
+			<li><a href="/contact">{m.header_contact()}</a></li>
 		</ul>
 
 		<div class="header-actions">
 			<a href="/doneren" class="donation-link">
-				<span>Online bağış</span>
+				<span>{m.header_donate()}</span>
 				<img src={heartIcon} alt="" class="heart-icon" />
 			</a>
 

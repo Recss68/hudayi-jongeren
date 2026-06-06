@@ -11,5 +11,12 @@
 	"home_hero_slider_label": "Featured images",
 	"home_hero_title": "A heart that beats for the community",
 	"home_hero_description": "Hüdayi Gençlik is a place where young people come together, grow in faith, and support one another within a strong community.",
-	"home_hero_read_more": "Read more"
+	"home_hero_read_more": "Read more",
+	"header_home": "Home",
+	"header_blog": "Blog",
+	"header_all_blogs": "All blogs",
+	"header_events": "Events",
+	"header_talks": "Talks",
+	"header_contact": "Contact",
+	"header_donate": "Donate online"
 }
