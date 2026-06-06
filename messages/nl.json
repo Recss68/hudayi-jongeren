@@ -39,5 +39,6 @@
 	"header_menu_close": "Menu sluiten",
 	"header_language_select": "Taal kiezen",
 	"footer_address": "Voorbeeldstraat 12, 3000 AB Rotterdam",
-	"footer_donation_cta": "Word donateur"
+	"footer_donation_cta": "Word donateur",
+	"instagram_fallback_text": "De Instagram-widget kon niet worden geladen. Controleer of JavaScript is ingeschakeld en vernieuw de pagina, of klik op de gebruikersnaam hieronder om naar de Instagram-pagina te gaan:"
 }

@@ -39,5 +39,6 @@
 	"header_menu_close": "Menüyü kapat",
 	"header_language_select": "Dil seç",
 	"footer_address": "Voorbeeldstraat 12, 3000 AB Rotterdam",
-	"footer_donation_cta": "Bağışçı ol"
+	"footer_donation_cta": "Bağışçı ol",
+	"instagram_fallback_text": "Instagram widget yüklenemedi. Lütfen JavaScript'in etkin olduğundan emin olun ve sayfayı yenileyin ya da Instagram sayfasına gitmek için aşağıdaki kullanıcı adına tıklayın:"
 }

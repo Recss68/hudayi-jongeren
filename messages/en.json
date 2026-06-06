@@ -39,5 +39,6 @@
 	"header_menu_close": "Close menu",
 	"header_language_select": "Choose language",
 	"footer_address": "Voorbeeldstraat 12, 3000 AB Rotterdam",
-	"footer_donation_cta": "Become a donor"
+	"footer_donation_cta": "Become a donor",
+	"instagram_fallback_text": "The Instagram widget could not be loaded. Make sure JavaScript is enabled and refresh the page, or click the username below to visit the Instagram page:"
 }
