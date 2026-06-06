@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { resolve } from '$app/paths';
+    import { page } from '$app/state';
     import * as m from '$lib/paraglide/messages';
     import DummyArticles from '$lib/data/dummy-articles.json';
 
@@ -25,13 +26,22 @@
         for (const card of cards) observer.observe(card);
         return () => observer.disconnect();
     });
+    const activeLocale = $derived.by(() => {
+        const locale = page.url.pathname.split('/')[1];
+
+        if (locale === 'nl' || locale === 'en' || locale === 'tr') {
+            return locale;
+        }
+
+        return 'tr';
+    });
 </script>
 
 <section class="section blog-section">
     <div class="section-inner">
         <div class="section-header">
-            <h2>{m.blog_heading()}</h2>
-            <a href={resolve('/haberler')} class="header-link">{m.blog_view_all()}</a>
+            <h2>{m.blog_heading({}, { locale: activeLocale })}</h2>
+            <a href={resolve('/haberler')} class="header-link">{m.blog_view_all({}, { locale: activeLocale })}</a>
         </div>
 
         <div class="articles-wrapper">
@@ -43,7 +53,7 @@
                             <span class="card-category">{article.categorie}</span>
                             <h3 class="card-title">{article.titel}</h3>
                             <p class="card-excerpt">{article.excerpt}</p>
-                            <a href={resolve(`/haberler/${article.slug}`)} class="card-link">{m.blog_read_more()} →</a>
+                            <a href={resolve(`/haberler/${article.slug}`)} class="card-link">{m.blog_read_more({}, { locale: activeLocale })} →</a>
                         </div>
                     </li>
                 {/each}
