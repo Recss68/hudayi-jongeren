@@ -1,12 +1,14 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
     import { fade } from 'svelte/transition';
+    import { getLocale } from '$lib/paraglide/runtime';
+    import * as m from '$lib/paraglide/messages';
     import { writable } from 'svelte/store';
     import { BukhariHadiths } from '$lib';
 
     const hadiths = Array.isArray(BukhariHadiths) ? BukhariHadiths : [];
     const currentIndex = writable(0);
-    let prefersReducedMotion = false;
+    let prefersReducedMotion = $state(false);
     let intervalId;
 
     function stopRotation() {
@@ -74,9 +76,9 @@
 
                             <figcaption class="hadith-caption">
                                 <h3 class="hadith-title">
-                                    {hadiths[$currentIndex].source} [{hadiths[$currentIndex].hadith_number}]
+                                    {m.hadith_source_bukhari()} [{hadiths[$currentIndex].hadith_number}]
                                 </h3>
-                                <p class="hadith-translation" lang="tr" dir="ltr">
+                                <p class="hadith-translation" lang={getLocale()} dir="ltr">
                                     {hadiths[$currentIndex].turkish}
                                 </p>
                             </figcaption>
@@ -84,7 +86,7 @@
                     </article>
                 {/key}
             {:else}
-                <p class="hadith-empty">Hadis bulunamadı.</p>
+                <p class="hadith-empty">{m.hadith_empty()}</p>
             {/if}
         </div>
     </div>
@@ -113,10 +115,6 @@
         grid-area: 1 / 1;
         width: 100%;
         min-height: 30rem;
-    }
-
-    .hadith-item--fallback {
-        grid-area: auto;
     }
 
     .hadith-figure {

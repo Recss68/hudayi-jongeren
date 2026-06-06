@@ -1,4 +1,10 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from en!"
+	"hello_world": "Hello, {name} from en!",
+	"hadith_source_bukhari": "Sahih al-Bukhari",
+	"hadith_empty": "No hadith found.",
+	"language_label": "Choose language",
+	"language_turkish": "Türkçe",
+	"language_dutch": "Nederlands",
+	"language_english": "English"
 }
