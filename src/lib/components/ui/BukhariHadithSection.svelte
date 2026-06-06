@@ -154,7 +154,7 @@
         max-width: 18.5rem;
         margin: 0;
         font-family: var(--font-arabic);
-        font-size: clamp(1.95rem, 8.5vw, 2.55rem);
+        font-size: 30px;
         font-weight: 400;
         line-height: 1.9;
         text-align: left;
@@ -176,7 +176,7 @@
         margin: 0;
         font-family: var(--font-primary);
         font-size: 1rem;
-        font-weight: var(--fw-medium);
+        font-weight: var(--fw-bold);
         line-height: 1.45;
         text-align: center;
         letter-spacing: -0.03em;
@@ -229,7 +229,7 @@
         .hadith-text {
             justify-self: start;
             max-width: 36rem;
-            font-size: clamp(2.4rem, 5.4vw, 3.2rem);
+            font-size: 40px;
             line-height: 1.55;
             text-align: left;
         }
@@ -254,13 +254,13 @@
         }
     }
 
-    @media (min-width: 1440px) {
+    @media (min-width: 1024px) {
         .hadith-single {
             margin-inline: 14rem auto;
         }
 
         .hadith-text {
-            font-size: clamp(3rem, 4.8vw, 4rem);
+            font-size: 48px;
         }
 
         .hadith-title {
