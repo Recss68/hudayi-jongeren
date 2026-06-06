@@ -137,6 +137,7 @@
         line-height: 1.9;
         text-align: right;
         direction: rtl;
+        unicode-bidi: plaintext;
     }
 
     .hadith-text p {
@@ -191,7 +192,7 @@
 
         .hadith-single {
             max-width: 42rem;
-            margin-inline: 0 auto;
+            margin-inline: auto;
         }
 
         .hadith-item {
@@ -200,23 +201,23 @@
 
         .hadith-figure {
             gap: 2.15rem;
-            justify-items: start;
+            justify-items: center;
             align-content: center;
             width: min(100%, 42rem);
-            margin-inline: 0 auto;
+            margin-inline: auto;
         }
 
         .hadith-text {
-            justify-self: start;
+            justify-self: center;
             max-width: 36rem;
             font-size: 40px;
             line-height: 1.55;
-            text-align: left;
+            text-align: center;
         }
 
         .hadith-caption {
             gap: 1.7rem;
-            justify-items: start;
+            justify-items: center;
         }
 
         .hadith-title {
@@ -226,18 +227,18 @@
             text-align: center;
         }
 
-        .hadith-translation {
+        .hadith-translation { 
             max-width: 35rem;
-            font-size: 1.05rem;
+            font-size: 16px;
             line-height: 1.7;
-            text-align: left;
+            text-align: center;
             letter-spacing: -0.02em;
         }
     }
 
     @media (min-width: 1024px) {
         .hadith-single {
-            margin-inline: 14rem auto;
+            margin-inline: auto;
         }
 
         .hadith-text {
@@ -250,7 +251,7 @@
 
         .hadith-figure {
             width: min(100%, 48rem);
-            margin-inline: 0 auto;
+            margin-inline: auto;
         }
     }
 </style>
