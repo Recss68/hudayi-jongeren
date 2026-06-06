@@ -112,6 +112,13 @@
         scrollbar-width: none;
 
         &::-webkit-scrollbar { display: none; }
+
+        @media (min-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            overflow: visible;
+            padding-inline: 0;
+        }
     }
 
     .article-card {
@@ -122,6 +129,10 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+
+        @media (min-width: 768px) {
+            flex: unset;
+        }
     }
 
     .card-image {
@@ -180,6 +191,8 @@
         display: flex;
         justify-content: center;
         padding-block-end: 0.5rem;
+
+        @media (min-width: 768px) { display: none; }
     }
 
     .dot-list {
