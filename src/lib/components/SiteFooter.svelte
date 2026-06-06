@@ -25,16 +25,16 @@
           <a class="link" href="/blog">{m.footer_blog()}</a>
         </li>
         <li>
-          <a class="link" href="/over-ons">Hakkımızda</a>
+          <a class="link" href="/over-ons">{m.footer_about()}</a>
         </li>
         <li>
-          <a class="link" href="/activiteiten">Etkinlikler</a>
+          <a class="link" href="/activiteiten">{m.footer_activities()}</a>
         </li>
         <li>
           <a class="link" href="/contact">{m.footer_contact()}</a>
         </li>
         <li>
-          <a class="link" href="/doneren">Bağış Yap</a>
+          <a class="link" href="/doneren">{m.footer_donate()}</a>
         </li>
       </ul>
     </nav>
