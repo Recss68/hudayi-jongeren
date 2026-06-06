@@ -2,26 +2,27 @@
   import instagramIcon from '$lib/assets/Icon.svg';
   import locationIcon from '$lib/assets/location.svg';
   import mailIcon from '$lib/assets/mail.svg';
+  import * as m from '$lib/paraglide/messages';
 </script>
 
 <footer class="footer">
   <div class="inner">
     <section class="brand">
-      <h3 class="title">Hüdayi Gençlik</h3>
+      <h3 class="title">{m.footer_brand_title()}</h3>
       <p class="tagline">
-        Gençler için bir yuva — inançla köklenen, toplulukla güçlenen.
+        {m.footer_tagline()}
       </p>
     </section>
 
     <nav class="navigation">
-      <h3 class="heading">Navigasyon</h3>
+      <h3 class="heading">{m.footer_navigation_heading()}</h3>
 
       <ul class="list">
         <li>
-          <a class="link" href="/">Ana Sayfa</a>
+          <a class="link" href="/">{m.footer_home()}</a>
         </li>
         <li>
-          <a class="link" href="/blog">Blog</a>
+          <a class="link" href="/blog">{m.footer_blog()}</a>
         </li>
         <li>
           <a class="link" href="/over-ons">Hakkımızda</a>
@@ -30,7 +31,7 @@
           <a class="link" href="/activiteiten">Etkinlikler</a>
         </li>
         <li>
-          <a class="link" href="/contact">İletişim</a>
+          <a class="link" href="/contact">{m.footer_contact()}</a>
         </li>
         <li>
           <a class="link" href="/doneren">Bağış Yap</a>
@@ -39,7 +40,7 @@
     </nav>
 
     <section class="contact">
-      <h3 class="heading">İletişim</h3>
+      <h3 class="heading">{m.footer_contact_heading()}</h3>
 
       <address class="address">
         <span class="contact-row">
@@ -66,7 +67,7 @@
   </div>
 
   <div class="bottom">
-    <p>© 2026 Hüdayi Gençlik · Tüm hakları saklıdır</p>
+    <p>{m.footer_copyright()}</p>
     <a class="donation-link" href="/doneren">Word donateur</a>
   </div>
 </footer>
