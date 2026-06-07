@@ -1,50 +1,61 @@
 <script>
+  import { page } from '$app/state';
   import instagramIcon from '$lib/assets/Icon.svg';
   import locationIcon from '$lib/assets/location.svg';
   import mailIcon from '$lib/assets/mail.svg';
+  import * as m from '$lib/paraglide/messages';
+  const activeLocale = $derived.by(() => {
+    const locale = page.url.pathname.split('/')[1];
+
+    if (locale === 'nl' || locale === 'en' || locale === 'tr') {
+      return locale;
+    }
+
+    return 'tr';
+  });
 </script>
 
 <footer class="footer">
   <div class="inner">
     <section class="brand">
-      <h3 class="title">Hüdayi Gençlik</h3>
+      <h3 class="title">{m.footer_brand_title({}, { locale: activeLocale })}</h3>
       <p class="tagline">
-        Gençler için bir yuva — inançla köklenen, toplulukla güçlenen.
+        {m.footer_tagline({}, { locale: activeLocale })}
       </p>
     </section>
 
     <nav class="navigation">
-      <h3 class="heading">Navigasyon</h3>
+      <h3 class="heading">{m.footer_navigation_heading({}, { locale: activeLocale })}</h3>
 
       <ul class="list">
         <li>
-          <a class="link" href="/">Ana Sayfa</a>
+          <a class="link" href="/">{m.footer_home({}, { locale: activeLocale })}</a>
         </li>
         <li>
-          <a class="link" href="/blog">Blog</a>
+          <a class="link" href="/blog">{m.footer_blog({}, { locale: activeLocale })}</a>
         </li>
         <li>
-          <a class="link" href="/over-ons">Hakkımızda</a>
+          <a class="link" href="/over-ons">{m.footer_about({}, { locale: activeLocale })}</a>
         </li>
         <li>
-          <a class="link" href="/activiteiten">Etkinlikler</a>
+          <a class="link" href="/activiteiten">{m.footer_activities({}, { locale: activeLocale })}</a>
         </li>
         <li>
-          <a class="link" href="/contact">İletişim</a>
+          <a class="link" href="/contact">{m.footer_contact({}, { locale: activeLocale })}</a>
         </li>
         <li>
-          <a class="link" href="/doneren">Bağış Yap</a>
+          <a class="link" href="/doneren">{m.footer_donate({}, { locale: activeLocale })}</a>
         </li>
       </ul>
     </nav>
 
     <section class="contact">
-      <h3 class="heading">İletişim</h3>
+      <h3 class="heading">{m.footer_contact_heading({}, { locale: activeLocale })}</h3>
 
       <address class="address">
         <span class="contact-row">
           <img src={locationIcon} alt="" class="icon" />
-          <span>Voorbeeldstraat 12, 3000 AB Rotterdam</span>
+          <span>{m.footer_address({}, { locale: activeLocale })}</span>
         </span>
 
         <span class="contact-row">
@@ -66,8 +77,8 @@
   </div>
 
   <div class="bottom">
-    <p>© 2026 Hüdayi Gençlik · Tüm hakları saklıdır</p>
-    <a class="donation-link" href="/doneren">Word donateur</a>
+    <p>{m.footer_copyright({}, { locale: activeLocale })}</p>
+    <a class="donation-link" href="/doneren">{m.footer_donation_cta({}, { locale: activeLocale })}</a>
   </div>
 </footer>
 

@@ -1,9 +1,25 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { page } from '$app/state';
+	import * as m from '$lib/paraglide/messages';
 	import { Verses } from '$lib';
 
 	const verses = Array.isArray(Verses) ? Verses : [];
+
+	const activeLocale = $derived.by(() => {
+		const locale = page.url.pathname.split('/')[1];
+
+		if (locale === 'nl' || locale === 'en' || locale === 'tr') {
+			return locale;
+		}
+
+		return 'tr';
+	});
+
+	function getVerseTranslation(verse) {
+		return verse?.translations?.[activeLocale] ?? verse?.translations?.tr ?? verse?.turkish ?? '';
+	}
 
 	import { writable } from 'svelte/store';
 	const currentIndex = writable(0);
@@ -43,11 +59,11 @@
 								$currentIndex
 							].verse_number}]
 						</h3>
-						<p class="verse-translation">{verses[$currentIndex].turkish}</p>
+						<p class="verse-translation" lang={activeLocale}>{getVerseTranslation(verses[$currentIndex])}</p>
 					</article>
 				{/key}
 			{:else}
-				<p>No verses available.</p>
+				<p>{m.quran_empty()}</p>
 			{/if}
 		</div>
 	</div>

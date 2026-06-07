@@ -7,6 +7,17 @@
 	import ukFlag from '$lib/assets/unitedkingdom.svg';
 	import chevronIcon from '$lib/assets/vector.svg';
 	import { page } from '$app/state';
+	import * as m from '$lib/paraglide/messages';
+
+	const activeLocale = $derived.by(() => {
+		const locale = page.url.pathname.split('/')[1];
+
+		if (locale === 'nl' || locale === 'en' || locale === 'tr') {
+			return locale;
+		}
+
+		return 'tr';
+	});
 
 	const currentLanguage = $derived.by(() => {
 		if (page.url.pathname.startsWith('/nl')) {
@@ -42,34 +53,34 @@
 			<input type="checkbox" id="menu-toggle-checkbox" class="sr-only menu-checkbox" />
 
 			<label for="menu-toggle-checkbox" class="menu-toggle-btn">
-				<span class="sr-only">Menu openen of sluiten</span>
+				<span class="sr-only">{m.header_menu_toggle({}, { locale: activeLocale })}</span>
 				<img src={hamburgerIcon} alt="" class="menu-icon menu-icon--hamburger" />
 				<img src={crossIcon} alt="" class="menu-icon menu-icon--cross" />
 			</label>
 
 			<label for="menu-toggle-checkbox" class="menu-overlay">
-				<span class="sr-only">Menu sluiten</span>
+				<span class="sr-only">{m.header_menu_close({}, { locale: activeLocale })}</span>
 			</label>
 
 			<div class="menu-panel">
 				<ul class="menu-list">
-					<li><a href="/">Ana Sayfa</a></li>
+					<li><a href="/">{m.header_home({}, { locale: activeLocale })}</a></li>
 					<li>
 						<details class="mobile-blog-dropdown">
 							<summary class="mobile-blog-summary">
-								<span>Blog</span>
+								<span>{m.header_blog({}, { locale: activeLocale })}</span>
 								<img src={chevronIcon} alt="" class="mobile-blog-chevron-icon" />
 							</summary>
 
 							<ul class="mobile-blog-list">
-								<li><a href="/blog">Tüm bloglar</a></li>
-								<li><a href="/activiteiten">Etkinlikler</a></li>
-								<li><a href="/lezingen">Sohbetler</a></li>
+								<li><a href="/blog">{m.header_all_blogs({}, { locale: activeLocale })}</a></li>
+								<li><a href="/activiteiten">{m.header_events({}, { locale: activeLocale })}</a></li>
+								<li><a href="/lezingen">{m.header_talks({}, { locale: activeLocale })}</a></li>
 							</ul>
 						</details>
 					</li>
-					<li><a href="/contact">İletişim</a></li>
-					<li><a href="/doneren">Online bağış</a></li>
+					<li><a href="/contact">{m.header_contact({}, { locale: activeLocale })}</a></li>
+					<li><a href="/doneren">{m.header_donate({}, { locale: activeLocale })}</a></li>
 				</ul>
 			</div>
 		</div>
@@ -77,34 +88,34 @@
 		<a href="/" class="brand-link">Hüdayi Gençlik</a>
 
 		<ul class="desktop-nav-list">
-			<li><a href="/">Ana Sayfa</a></li>
+			<li><a href="/">{m.header_home({}, { locale: activeLocale })}</a></li>
 			<li class="desktop-blog-item">
 				<details class="desktop-blog-dropdown">
 					<summary class="desktop-blog-summary">
-						<span>Blog</span>
+						<span>{m.header_blog({}, { locale: activeLocale })}</span>
 						<img src={chevronIcon} alt="" class="desktop-chevron-icon" />
 					</summary>
 
 					<ul class="desktop-blog-list">
-						<li><a href="/blog"><span>Tüm bloglar</span></a></li>
-						<li><a href="/activiteiten"><span>Etkinlikler</span></a></li>
-						<li><a href="/lezingen"><span>Sohbetler</span></a></li>
+						<li><a href="/blog"><span>{m.header_all_blogs({}, { locale: activeLocale })}</span></a></li>
+						<li><a href="/activiteiten"><span>{m.header_events({}, { locale: activeLocale })}</span></a></li>
+						<li><a href="/lezingen"><span>{m.header_talks({}, { locale: activeLocale })}</span></a></li>
 					</ul>
 				</details>
 			</li>
-			<li><a href="/contact">İletişim</a></li>
+			<li><a href="/contact">{m.header_contact({}, { locale: activeLocale })}</a></li>
 		</ul>
 
 		<div class="header-actions">
 			<a href="/doneren" class="donation-link">
-				<span>Online bağış</span>
+				<span>{m.header_donate({}, { locale: activeLocale })}</span>
 				<img src={heartIcon} alt="" class="heart-icon" />
 			</a>
 
 			<details class="language-picker" bind:open={isLangPickerOpen}>
 				<summary class="language-summary">
 					<img src={currentLanguage.flag} alt="" class="flag-icon" />
-					<span class="sr-only">Dil seç: {currentLanguage.name}</span>
+					<span class="sr-only">{m.header_language_select({}, { locale: activeLocale })}: {currentLanguage.name}</span>
 					<img src={chevronIcon} alt="" class="chevron-icon" />
 				</summary>
 

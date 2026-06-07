@@ -2,7 +2,19 @@
   import heroImage from '$lib/assets/test.png';
   import arrowIcon from '$lib/assets/arrow.svg';
   import dividerImage from '$lib/assets/divider.svg';
+  import { page } from '$app/state';
+  import * as m from '$lib/paraglide/messages';
   import { QuranVerseSection, InstagramWidget, BukhariHadithSection, BlogSection } from '$lib';
+
+  const activeLocale = $derived.by(() => {
+    const locale = page.url.pathname.split('/')[1];
+
+    if (locale === 'nl' || locale === 'en' || locale === 'tr') {
+      return locale;
+    }
+
+    return 'tr';
+  });
 </script>
 
 <section class="home-hero">
@@ -12,14 +24,14 @@
     <div class="visual">
       <div class="media">
         <ul class="track">
-          <li><img src={heroImage} alt="Meydandaki cami" /></li>
-          <li><img src={heroImage} alt="Meydandaki cami" /></li>
-          <li><img src={heroImage} alt="Meydandaki cami" /></li>
+          <li><img src={heroImage} alt={m.home_hero_image_alt({}, { locale: activeLocale })} /></li>
+          <li><img src={heroImage} alt={m.home_hero_image_alt({}, { locale: activeLocale })} /></li>
+          <li><img src={heroImage} alt={m.home_hero_image_alt({}, { locale: activeLocale })} /></li>
         </ul>
       </div>
 
       <div class="slider-nav">
-        <p class="sr-only">Öne çıkan görseller</p>
+        <p class="sr-only">{m.home_hero_slider_label({}, { locale: activeLocale })}</p>
 
         <ol class="dot-list">
           <li><span class="dot"></span></li>
@@ -30,14 +42,13 @@
     </div>
 
     <div class="content">
-      <h1>Toplum için atan bir kalp</h1>
+      <h1>{m.home_hero_title({}, { locale: activeLocale })}</h1>
       <p>
-        Masa kahve telefon dağ şeker armut saat çiçek orman, bulut, kuş tarla çay ayna?
-        Çiçek yıldız gökyüzü mobilya saat tarla kuş dağ elma armut, kaşık, ev defter hava.
+        {m.home_hero_description({}, { locale: activeLocale })}
       </p>
 
       <a href="/hakkimizda" class="link">
-        <span>Daha fazla oku</span>
+        <span>{m.home_hero_read_more({}, { locale: activeLocale })}</span>
         <img src={arrowIcon} alt="" class="icon" />
       </a>
     </div>

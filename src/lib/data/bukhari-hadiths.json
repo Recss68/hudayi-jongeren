@@ -7,7 +7,12 @@
     "arabic": "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ",
     "transliteration": "İnnemel a'malu binniyyat",
     "turkish": "Ameller ancak niyetlere göredir.",
-    "theme": "niyet"
+    "theme": "niyet",
+    "translations": {
+      "tr": "Ameller ancak niyetlere göredir.",
+      "nl": "Daden worden slechts beoordeeld naar intenties.",
+      "en": "Actions are judged only by intentions."
+    }
   },
   {
     "id": 2,
@@ -17,7 +22,12 @@
     "arabic": "المُسْلِمُ مَنْ سَلِمَ المُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
     "transliteration": "El muslimu men selimel muslimune min lisanihi ve yedih",
     "turkish": "Müslüman, diğer Müslümanların elinden ve dilinden güvende olduğu kimsedir.",
-    "theme": "ahlak"
+    "theme": "ahlak",
+    "translations": {
+      "tr": "Müslüman, diğer Müslümanların elinden ve dilinden güvende olduğu kimsedir.",
+      "nl": "Een moslim is degene voor wiens tong en hand andere moslims veilig zijn.",
+      "en": "A Muslim is the one from whose tongue and hand other Muslims are safe."
+    }
   },
   {
     "id": 3,
@@ -27,7 +37,12 @@
     "arabic": "لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
     "transliteration": "La yu'minu ehadukum hatta yuhibbe li ehihi ma yuhibbu li nefsih",
     "turkish": "Sizden biri, kendisi için sevdiğini kardeşi için de sevmedikçe iman etmiş olmaz.",
-    "theme": "kardeşlik"
+    "theme": "kardeşlik",
+    "translations": {
+      "tr": "Sizden biri, kendisi için sevdiğini kardeşi için de sevmedikçe iman etmiş olmaz.",
+      "nl": "Niemand van jullie gelooft volledig totdat hij voor zijn broeder wenst wat hij voor zichzelf wenst.",
+      "en": "None of you truly believes until he loves for his brother what he loves for himself."
+    }
   },
   {
     "id": 4,
@@ -37,7 +52,12 @@
     "arabic": "إِنَّ الدِّينَ يُسْرٌ",
     "transliteration": "İnned dine yusr",
     "turkish": "Şüphesiz din kolaylıktır.",
-    "theme": "kolaylık"
+    "theme": "kolaylık",
+    "translations": {
+      "tr": "Şüphesiz din kolaylıktır.",
+      "nl": "Voorwaar, de religie is gemakkelijk.",
+      "en": "Indeed, the religion is ease."
+    }
   },
   {
     "id": 5,
@@ -47,7 +67,12 @@
     "arabic": "يَسِّرُوا وَلاَ تُعَسِّرُوا وَبَشِّرُوا وَلاَ تُنَفِّرُوا",
     "transliteration": "Yessiru ve la tuassiru, beşşiru ve la tuneffiru",
     "turkish": "Kolaylaştırın, zorlaştırmayın; müjdeleyin, nefret ettirmeyin.",
-    "theme": "merhamet"
+    "theme": "merhamet",
+    "translations": {
+      "tr": "Kolaylaştırın, zorlaştırmayın; müjdeleyin, nefret ettirmeyin.",
+      "nl": "Maak het gemakkelijk en maak het niet moeilijk; breng goed nieuws en jaag mensen niet weg.",
+      "en": "Make things easy and do not make them difficult; give glad tidings and do not drive people away."
+    }
   },
   {
     "id": 6,
@@ -57,7 +82,12 @@
     "arabic": "إِذَا سَمِعْتُمُ النِّدَاءَ فَقُولُوا مِثْلَ مَا يَقُولُ المُؤَذِّنُ",
     "transliteration": "İza semi'tumun nidae fe kulu misle ma yekulul muezzin",
     "turkish": "Ezanı işittiğinizde müezzinin söylediği gibi söyleyin.",
-    "theme": "ibadet"
+    "theme": "ibadet",
+    "translations": {
+      "tr": "Ezanı işittiğinizde müezzinin söylediği gibi söyleyin.",
+      "nl": "Wanneer jullie de oproep tot gebed horen, zeg dan hetzelfde als wat de gebedsoproeper zegt.",
+      "en": "When you hear the call to prayer, say what the caller to prayer says."
+    }
   },
   {
     "id": 7,
@@ -67,7 +97,12 @@
     "arabic": "المُؤْمِنُ لِلْمُؤْمِنِ كَالْبُنْيَانِ يَشُدُّ بَعْضُهُ بَعْضًا",
     "transliteration": "El mu'minu lil mu'mini kel bunyan, yeşuddu ba'duhu ba'da",
     "turkish": "Mümin, mümin için parçaları birbirini destekleyen bir bina gibidir.",
-    "theme": "birlik"
+    "theme": "birlik",
+    "translations": {
+      "tr": "Mümin, mümin için parçaları birbirini destekleyen bir bina gibidir.",
+      "nl": "Een gelovige is voor een andere gelovige als een gebouw waarvan de delen elkaar versterken.",
+      "en": "A believer to another believer is like a building whose parts support one another."
+    }
   },
   {
     "id": 8,
@@ -77,7 +112,12 @@
     "arabic": "وَالكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ",
     "transliteration": "Vel kelimetut tayyibetu sadaka",
     "turkish": "Güzel söz sadakadır.",
-    "theme": "iyilik"
+    "theme": "iyilik",
+    "translations": {
+      "tr": "Güzel söz sadakadır.",
+      "nl": "Een goed woord is liefdadigheid.",
+      "en": "A good word is charity."
+    }
   },
   {
     "id": 9,
@@ -87,7 +127,12 @@
     "arabic": "بَلِّغُوا عَنِّي وَلَوْ آيَةً",
     "transliteration": "Belligu anni ve lev ayeh",
     "turkish": "Benden bir ayet bile olsa insanlara ulaştırın.",
-    "theme": "tebliğ"
+    "theme": "tebliğ",
+    "translations": {
+      "tr": "Benden bir ayet bile olsa insanlara ulaştırın.",
+      "nl": "Geef van mij door, al is het maar één vers.",
+      "en": "Convey from me, even if it is one verse."
+    }
   },
   {
     "id": 10,
@@ -97,7 +142,12 @@
     "arabic": "خَيْرُكُمْ مَنْ تَعَلَّمَ القُرْآنَ وَعَلَّمَهُ",
     "transliteration": "Hayrukum men teallemel Kur'ane ve allemeh",
     "turkish": "Sizin en hayırlınız Kur'an'ı öğrenen ve öğreten kişidir.",
-    "theme": "kur'an"
+    "theme": "kur'an",
+    "translations": {
+      "tr": "Sizin en hayırlınız Kur'an'ı öğrenen ve öğreten kişidir.",
+      "nl": "De beste onder jullie is degene die de Koran leert en onderwijst.",
+      "en": "The best of you are those who learn the Qur'an and teach it."
+    }
   },
   {
     "id": 11,
@@ -107,7 +157,12 @@
     "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَاليَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
     "transliteration": "Men kane yu'minu billahi vel yevmil ahiri fel yekul hayran ev li yasmut",
     "turkish": "Allah'a ve ahiret gününe iman eden ya hayır söylesin ya da sussun.",
-    "theme": "dil"
+    "theme": "dil",
+    "translations": {
+      "tr": "Allah'a ve ahiret gününe iman eden ya hayır söylesin ya da sussun.",
+      "nl": "Wie in Allah en de Laatste Dag gelooft, laat hem het goede zeggen of zwijgen.",
+      "en": "Whoever believes in Allah and the Last Day should speak good or remain silent."
+    }
   },
   {
     "id": 12,
@@ -117,7 +172,12 @@
     "arabic": "كُلُّ مَعْرُوفٍ صَدَقَةٌ",
     "transliteration": "Kullu ma'rufin sadaka",
     "turkish": "Her iyilik sadakadır.",
-    "theme": "iyilik"
+    "theme": "iyilik",
+    "translations": {
+      "tr": "Her iyilik sadakadır.",
+      "nl": "Elke goede daad is liefdadigheid.",
+      "en": "Every good deed is charity."
+    }
   },
   {
     "id": 13,
@@ -127,7 +187,12 @@
     "arabic": "مَنْ لاَ يَرْحَمُ لاَ يُرْحَمُ",
     "transliteration": "Men la yerham, la yurham",
     "turkish": "Merhamet etmeyene merhamet edilmez.",
-    "theme": "merhamet"
+    "theme": "merhamet",
+    "translations": {
+      "tr": "Merhamet etmeyene merhamet edilmez.",
+      "nl": "Wie geen barmhartigheid toont, zal geen barmhartigheid ontvangen.",
+      "en": "Whoever does not show mercy will not be shown mercy."
+    }
   },
   {
     "id": 14,
@@ -137,7 +202,12 @@
     "arabic": "لَيْسَ الغِنَى عَنْ كَثْرَةِ العَرَضِ وَلَكِنَّ الغِنَى غِنَى النَّفْسِ",
     "transliteration": "Leysel gina an kesretil arad, ve lakinnel gina ginen nefs",
     "turkish": "Zenginlik mal çokluğu değildir; asıl zenginlik gönül zenginliğidir.",
-    "theme": "kanaat"
+    "theme": "kanaat",
+    "translations": {
+      "tr": "Zenginlik mal çokluğu değildir; asıl zenginlik gönül zenginliğidir.",
+      "nl": "Rijkdom is niet de overvloed aan bezit; echte rijkdom is rijkdom van de ziel.",
+      "en": "Richness is not having many possessions; true richness is richness of the soul."
+    }
   },
   {
     "id": 15,
@@ -147,6 +217,11 @@
     "arabic": "نِعْمَتَانِ مَغْبُونٌ فِيهِمَا كَثِيرٌ مِنَ النَّاسِ الصِّحَّةُ وَالفَرَاغُ",
     "transliteration": "Ni'metani mağbunun fihima kesirun minen nas: es-sihhatu vel ferag",
     "turkish": "İnsanların çoğunun kıymetini bilmediği iki nimet vardır: sağlık ve boş vakit.",
-    "theme": "şükür"
+    "theme": "şükür",
+    "translations": {
+      "tr": "İnsanların çoğunun kıymetini bilmediği iki nimet vardır: sağlık ve boş vakit.",
+      "nl": "Er zijn twee gunsten waarvan veel mensen de waarde niet beseffen: gezondheid en vrije tijd.",
+      "en": "There are two blessings many people fail to appreciate: health and free time."
+    }
   }
 ]
