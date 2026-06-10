@@ -12,7 +12,7 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run"
+		"test": "npm run test:unit -- --run --passWithNoTests"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.4",
