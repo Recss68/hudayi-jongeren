@@ -62,7 +62,12 @@
 <header class="site-header">
 	<nav class="header-nav">
 		<div class="menu-wrapper">
-			<input type="checkbox" id="menu-toggle-checkbox" class="sr-only menu-checkbox" bind:checked={isMenuOpen} />
+			<input
+				type="checkbox"
+				id="menu-toggle-checkbox"
+				class="sr-only menu-checkbox"
+				bind:checked={isMenuOpen}
+			/>
 
 			<label for="menu-toggle-checkbox" class="menu-toggle-btn">
 				<span class="sr-only">{m.header_menu_toggle({}, { locale: activeLocale })}</span>
@@ -109,9 +114,17 @@
 					</summary>
 
 					<ul class="desktop-blog-list">
-						<li><a href="/blog"><span>{m.header_all_blogs({}, { locale: activeLocale })}</span></a></li>
-						<li><a href="/activiteiten"><span>{m.header_events({}, { locale: activeLocale })}</span></a></li>
-						<li><a href="/lezingen"><span>{m.header_talks({}, { locale: activeLocale })}</span></a></li>
+						<li>
+							<a href="/blog"><span>{m.header_all_blogs({}, { locale: activeLocale })}</span></a>
+						</li>
+						<li>
+							<a href="/activiteiten"
+								><span>{m.header_events({}, { locale: activeLocale })}</span></a
+							>
+						</li>
+						<li>
+							<a href="/lezingen"><span>{m.header_talks({}, { locale: activeLocale })}</span></a>
+						</li>
 					</ul>
 				</details>
 			</li>
@@ -127,7 +140,9 @@
 			<details class="language-picker" bind:open={isLangPickerOpen}>
 				<summary class="language-summary">
 					<img src={currentLanguage.flag} alt="" class="flag-icon" />
-					<span class="sr-only">{m.header_language_select({}, { locale: activeLocale })}: {currentLanguage.name}</span>
+					<span class="sr-only"
+						>{m.header_language_select({}, { locale: activeLocale })}: {currentLanguage.name}</span
+					>
 					<img src={chevronIcon} alt="" class="chevron-icon" />
 				</summary>
 

@@ -1,8 +1,12 @@
 // place files you want to import through the `$lib` alias in this folder.
 
+// Layout
+export { default as Header } from './components/layout/Header.svelte';
+export { default as Footer } from './components/layout/Footer.svelte';
+
 // UI
 export { default as QuranVerseSection } from './components/ui/QuranVerseSection.svelte';
-export { default as BukhariHadithSection } from './components/ui/BukhariHadithSection.svelte';
+export { default as HadithSection } from './components/ui/HadithSection.svelte';
 export { default as InstagramWidget } from './components/ui/InstagramWidget.svelte';
 export { default as BlogSection } from './components/ui/BlogSection.svelte';
 
