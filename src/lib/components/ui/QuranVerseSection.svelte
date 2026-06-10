@@ -110,6 +110,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 0.25rem 0;
+		gap: 0.5rem;
 	}
 
 	.verse-text {
