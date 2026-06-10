@@ -1,7 +1,6 @@
 <script>
 	import '$lib/styles/hj-styles.css';
-	import Header from '$lib/components/header.svelte';
-	import Footer from '$lib/components/SiteFooter.svelte';
+	import { Header, Footer } from '$lib';
 
 	let { children } = $props();
 </script>

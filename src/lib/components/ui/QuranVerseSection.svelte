@@ -59,7 +59,9 @@
 								$currentIndex
 							].verse_number}]
 						</h3>
-						<p class="verse-translation" lang={activeLocale}>{getVerseTranslation(verses[$currentIndex])}</p>
+						<p class="verse-translation" lang={activeLocale}>
+							{getVerseTranslation(verses[$currentIndex])}
+						</p>
 					</article>
 				{/key}
 			{:else}
@@ -101,7 +103,7 @@
 		overflow: hidden;
 	}
 
-.verse-item {
+	.verse-item {
 		grid-area: 1 / 1;
 		width: 100%;
 		box-sizing: border-box;
