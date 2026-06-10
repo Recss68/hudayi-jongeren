@@ -41,6 +41,18 @@
 	});
 
 	let isLangPickerOpen = $state(false);
+	let isMenuOpen = $state(false);
+
+	$effect(() => {
+		if (isMenuOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
+		return () => {
+			document.body.style.overflow = '';
+		};
+	});
 
 	function closeLanguagePicker() {
 		isLangPickerOpen = false;
@@ -50,7 +62,7 @@
 <header class="site-header">
 	<nav class="header-nav">
 		<div class="menu-wrapper">
-			<input type="checkbox" id="menu-toggle-checkbox" class="sr-only menu-checkbox" />
+			<input type="checkbox" id="menu-toggle-checkbox" class="sr-only menu-checkbox" bind:checked={isMenuOpen} />
 
 			<label for="menu-toggle-checkbox" class="menu-toggle-btn">
 				<span class="sr-only">{m.header_menu_toggle({}, { locale: activeLocale })}</span>
