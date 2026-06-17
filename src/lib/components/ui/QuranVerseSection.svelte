@@ -1,5 +1,5 @@
 <script>
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { page } from '$app/state';
 	import * as m from '$lib/paraglide/messages';
@@ -38,9 +38,6 @@
 		return () => clearInterval(intervalId);
 	});
 
-	onDestroy(() => {
-		if (intervalId) clearInterval(intervalId);
-	});
 </script>
 
 <section class="section quran-verses-section">

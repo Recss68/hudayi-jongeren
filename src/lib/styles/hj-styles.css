@@ -170,7 +170,11 @@ body {
 	line-height: var(--lh-body);
 	background-color: var(--c-bg-main);
 	color: var(--c-text-main);
-	overflow-x: hidden;
+	overflow-x: clip;
+}
+
+img {
+	max-width: 100%;
 }
 
 a {

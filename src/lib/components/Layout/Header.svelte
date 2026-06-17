@@ -687,10 +687,6 @@
 			transform: scaleX(1);
 		}
 
-		.desktop-nav-link-with-icon {
-			gap: 0.5rem;
-		}
-
 		.desktop-blog-item {
 			position: relative;
 		}

@@ -1,5 +1,5 @@
 <script>
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { page } from '$app/state';
 	import * as m from '$lib/paraglide/messages';
@@ -73,9 +73,6 @@
 		};
 	});
 
-	onDestroy(() => {
-		stopRotation();
-	});
 </script>
 
 <section class="section bukhari-hadith-section">
