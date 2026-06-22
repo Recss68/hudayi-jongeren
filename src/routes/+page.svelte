@@ -1,9 +1,10 @@
 <script>
-  import Hero from '$lib/components/ui/Hero.svelte';
+  import Hero from '$lib/components/ui/HeroSection.svelte';
   import { QuranVerseSection, InstagramWidget, BukhariHadithSection, BlogSection } from '$lib';
+	import HeroSection from '$lib/components/ui/HeroSection.svelte';
 </script>
 
-<Hero />
+<HeroSection />
 
 <QuranVerseSection />
 
