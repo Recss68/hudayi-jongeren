@@ -4,15 +4,6 @@
    ========================================================================== */
 
 /* --- Fonts ------------------------------------------------- */
-/* Plus Jakarta Sans - Light (300) */
-@font-face {
-	font-family: 'Plus Jakarta Sans';
-	font-style: normal;
-	font-weight: 300;
-	font-display: swap;
-	src: url('/fonts/plus-jakarta-sans-v12-latin-300.woff2') format('woff2');
-}
-
 /* Plus Jakarta Sans - Regular (400) */
 @font-face {
 	font-family: 'Plus Jakarta Sans';
