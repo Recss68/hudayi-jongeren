@@ -135,6 +135,8 @@
     gap: var(--space-20);
     padding: var(--space-24) 16px var(--space-4);
     background-color: var(--c-night-green);
+    /* Establishes the Hero as a named inline-size query container. */
+    container: hero / inline-size;
   }
 
   .hero-card {
@@ -178,7 +180,7 @@
     overflow-x: auto;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
     scrollbar-width: none;
     counter-reset: slide-counter;
 
@@ -218,6 +220,7 @@
     border-radius: var(--radius-pill);
     background-color: var(--c-hero-dot-muted);
     text-decoration: none;
+    transition: var(--carousel-marker-transition);
 
     &:focus-visible {
       outline: 2px solid var(--c-hero-text);
@@ -299,13 +302,58 @@
     white-space: nowrap;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .carousel {
-      scroll-behavior: smooth;
+  /*
+   * The New Responsive — macro layout:
+   * this viewport-based media query adjusts page-level spacing.
+   */
+  @media (min-width: 768px) {
+    .home-hero {
+      padding: var(--space-24) 0 var(--space-12);
+    }
+  }
+
+  /*
+   * The New Responsive — component layout:
+   * this container query lets the Hero respond to its own available width
+   * instead of depending only on the viewport width.
+   */
+  @container hero (min-width: 768px) {
+    .hero-card {
+      display: grid;
+      grid-template-columns: minmax(0, 260px) 340px;
+      align-items: start;
+      gap: 96px;
+      width: min(100%, 768px);
+      min-height: 500px;
+      padding: 72px 32px 72px 40px;
+      border-radius: 0;
     }
 
-    .dot {
-      transition: var(--carousel-marker-transition);
+    .carousel-wrapper {
+      order: 2;
+      width: 340px;
+      justify-self: end;
+    }
+
+    .content {
+      order: 1;
+      gap: var(--space-5);
+      height: 340px;
+      padding-block-start: 0;
+    }
+
+    .content h1 {
+      max-width: 12ch;
+      font-size: clamp(30px, 4vw, 36px);
+    }
+
+    .content p {
+      max-width: 35ch;
+      font-size: 14px;
+    }
+
+    .link {
+      margin-block-start: auto;
     }
   }
 
@@ -333,6 +381,7 @@
         height: var(--carousel-marker-size);
         border-radius: var(--radius-pill);
         background-color: var(--c-hero-dot-muted);
+        transition: var(--carousel-marker-transition);
       }
 
       &::scroll-marker:target-current {
@@ -343,14 +392,6 @@
 
     .carousel-dots {
       display: none;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .slide {
-        &::scroll-marker {
-          transition: var(--carousel-marker-transition);
-        }
-      }
     }
   }
 </style>
