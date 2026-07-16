@@ -244,6 +244,35 @@
   }
 
   /*
+   * Scroll-driven carousel image emphasis.
+   * Source: https://scroll-driven-animations.style/
+   * Each image responds to its horizontal position inside the scroll container.
+   */
+  @supports (animation-timeline: view(inline)) {
+    .hero-image {
+      animation-name: hero-image-emphasis;
+      animation-duration: 1ms;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out;
+      animation-timeline: view(inline);
+      animation-range: cover 0% cover 100%;
+    }
+
+    @keyframes hero-image-emphasis {
+      0%,
+      100% {
+        opacity: 0.8;
+        transform: scale(0.96);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  /*
    * Fallback controls for browsers without native ::scroll-marker support.
    * Source: https://www.jomaendle.com/blog/css-carousel
    * The article describes scroll markers as interactive position indicators.
@@ -368,7 +397,7 @@
     }
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1100px) {
     .home-hero {
       padding: var(--space-12) 0 var(--space-8);
     }
@@ -382,10 +411,10 @@
   @container hero (min-width: 768px) {
     .hero-card {
       display: grid;
-      grid-template-columns: minmax(0, 260px) 340px;
+      grid-template-columns: minmax(260px, 1fr) 340px;
       align-items: start;
-      gap: 96px;
-      width: min(100%, 768px);
+      gap: clamp(48px, 7cqi, 96px);
+      width: min(100%, 1024px);
       min-height: 500px;
       padding: 72px 32px 72px 40px;
       border-radius: 0;
@@ -426,14 +455,14 @@
    * the Hero fills the available desktop width while the inner content
    * scales from the tablet composition based on the container size.
    */
-  @container hero (min-width: 1000px) {
+  @container hero (min-width: 1100px) {
     .hero-card {
-      grid-template-columns: minmax(0, 500px) 420px;
+      grid-template-columns: minmax(0, 420px) 420px;
       justify-content: center;
       gap: 80px;
       width: 100%;
       min-height: auto;
-      padding: var(--space-12) clamp(48px, 6cqi, 120px);
+      padding: var(--space-12) clamp(48px, 5cqi, 80px);
       border-radius: 0;
     }
 
@@ -473,6 +502,15 @@
       margin-block-start: var(--space-5);
       padding-inline: var(--space-5);
       font-size: var(--fs-hero-cta-desktop);
+    }
+  }
+
+  /*
+   * Reduce motion for users who prefer it.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-image {
+      animation: none;
     }
   }
 
