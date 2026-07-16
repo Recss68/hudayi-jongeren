@@ -337,23 +337,79 @@
 
     .content {
       order: 1;
+      align-self: center;
       gap: var(--space-5);
-      height: 340px;
+      height: auto;
       padding-block-start: 0;
+    }
+
+    .link {
+      margin-block-start: var(--space-5);
     }
 
     .content h1 {
       max-width: 12ch;
-      font-size: clamp(30px, 4vw, 36px);
+      font-size:  clamp(30px, 4vw, 36px);
     }
 
     .content p {
       max-width: 35ch;
       font-size: 14px;
     }
+  }
+
+  /*
+   * The New Responsive — desktop component layout:
+   * the Hero fills the available desktop width while the inner content
+   * scales from the tablet composition based on the container size.
+   */
+  @container hero (min-width: 1000px) {
+    .hero-card {
+      grid-template-columns: minmax(0, 500px) 460px;
+      justify-content: center;
+      gap: 88px;
+      width: 100%;
+      min-height: 720px;
+      padding: 48px clamp(48px, 6cqi, 120px);
+      border-radius: 0;
+    }
+
+    .carousel-wrapper {
+      width: 460px;
+      justify-self: end;
+      align-self: center;
+      --carousel-marker-size: 10px;
+      --carousel-marker-size-active: 28px;
+      --carousel-marker-gap: 10px;
+    }
+
+    .hero-image {
+      aspect-ratio: 4 / 5;
+    }
+
+    .content {
+      align-self: center;
+      gap: var(--space-5);
+      height: auto;
+      padding-block-start: 0;
+    }
+
+    .content h1 {
+      max-width: 18ch;
+      font-size: var(--fs-hero-heading-desktop);
+    }
+
+    .content p {
+      max-width: 48ch;
+      font-size: var(--fs-hero-body-desktop);
+      line-height: var(--lh-body);
+    }
 
     .link {
-      margin-block-start: auto;
+      min-height: 44px;
+      margin-block-start: var(--space-5);
+      padding-inline: var(--space-5);
+      font-size: var(--fs-hero-cta-desktop);
     }
   }
 
