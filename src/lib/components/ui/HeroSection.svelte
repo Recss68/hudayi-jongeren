@@ -13,6 +13,7 @@
 
   let carouselElement = $state();
   let activeSlide = $state(0);
+  let hasJavaScript = $state(false);
 
   // Read the active locale from the URL so the hero follows the current route language.
   const activeLocale = $derived.by(() => {
@@ -52,9 +53,31 @@
     }
   ]);
 
+  // Enhanced fallback controls: keep anchor links for no-JS, but only scroll the carousel when JS is available.
+  function handleFallbackDotClick(event, index) {
+    if (!carouselElement) {
+      return;
+    }
+
+    const targetSlide = carouselElement.querySelector(`[data-slide-index="${index}"]`);
+
+    if (!targetSlide) {
+      return;
+    }
+
+    event.preventDefault();
+
+    carouselElement.scrollTo({
+      left: targetSlide.offsetLeft,
+      behavior: 'smooth'
+    });
+  }
+
   // Progressive enhancement: the carousel works with CSS scroll snap without JavaScript.
   // JavaScript only keeps the fallback dots in sync when native scroll markers are unavailable.
   onMount(() => {
+    hasJavaScript = true;
+
     const supportsScrollMarkers = CSS.supports('selector(::scroll-marker)');
 
     if (!carouselElement || !('IntersectionObserver' in window) || supportsScrollMarkers) {
@@ -112,18 +135,31 @@
         {/each}
       </div>
 
-      <!-- Fallback dots: visible when native ::scroll-marker is unsupported. -->
-      <div class="carousel-dots">
-        {#each slides as slide, index (slide.id)}
-          <a
-            href={`#hero-slide-${slide.id}`}
-            class="dot"
-            class:active-dot={activeSlide === index}
-          >
-            <span class="sr-only">{heroShowImage} {index + 1}</span>
-          </a>
-        {/each}
-      </div>
+      <!--
+        Progressive enhancement fallback:
+        without JavaScript, passive dots indicate that more slides are available;
+        with JavaScript, the same visual dots become keyboard- and pointer-operable links.
+      -->
+      {#if hasJavaScript}
+        <div class="carousel-dots">
+          {#each slides as slide, index (slide.id)}
+            <a
+              href={`#hero-slide-${slide.id}`}
+              class="dot"
+              class:active-dot={activeSlide === index}
+              onclick={(event) => handleFallbackDotClick(event, index)}
+            >
+              <span class="sr-only">{heroShowImage} {index + 1}</span>
+            </a>
+          {/each}
+        </div>
+      {:else}
+        <div class="carousel-dots carousel-indicators">
+          {#each slides as slide, index (slide.id)}
+            <span class="dot" class:active-dot={index === 0}></span>
+          {/each}
+        </div>
+      {/if}
     </div>
   </div>
 </section>
@@ -207,7 +243,12 @@
     object-fit: cover;
   }
 
-  /* Fallback dots: visible in browsers without native ::scroll-marker support. */
+  /*
+   * Fallback controls for browsers without native ::scroll-marker support.
+   * Source: https://www.jomaendle.com/blog/css-carousel
+   * The article describes scroll markers as interactive position indicators.
+   * These HTML links mirror that behaviour while using a larger click target.
+   */
   .carousel-dots {
     display: flex;
     justify-content: center;
@@ -215,22 +256,34 @@
     gap: var(--carousel-marker-gap);
   }
 
+  .carousel-indicators .dot {
+    pointer-events: none;
+  }
+
   .dot {
-    display: block;
-    width: var(--carousel-marker-size);
-    height: var(--carousel-marker-size);
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
     border-radius: var(--radius-pill);
-    background-color: var(--c-hero-dot-muted);
     text-decoration: none;
-    transition: var(--carousel-marker-transition);
+
+    &::before {
+      width: var(--carousel-marker-size);
+      height: var(--carousel-marker-size);
+      border-radius: var(--radius-pill);
+      background-color: var(--c-hero-dot-muted);
+      content: '';
+      transition: var(--carousel-marker-transition);
+    }
 
     &:focus-visible {
       outline: 2px solid var(--c-hero-text);
-      outline-offset: 4px;
+      outline-offset: 2px;
     }
   }
 
-  .active-dot {
+  .active-dot::before {
     width: var(--carousel-marker-size-active);
     background-color: var(--c-hero-dot);
   }
