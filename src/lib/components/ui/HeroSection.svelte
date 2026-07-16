@@ -312,6 +312,12 @@
     }
   }
 
+  @media (min-width: 1000px) {
+    .home-hero {
+      padding: var(--space-12) 0 var(--space-8);
+    }
+  }
+
   /*
    * The New Responsive — component layout:
    * this container query lets the Hero respond to its own available width
@@ -365,17 +371,17 @@
    */
   @container hero (min-width: 1000px) {
     .hero-card {
-      grid-template-columns: minmax(0, 500px) 460px;
+      grid-template-columns: minmax(0, 500px) 420px;
       justify-content: center;
-      gap: 88px;
+      gap: 80px;
       width: 100%;
-      min-height: 720px;
-      padding: 48px clamp(48px, 6cqi, 120px);
+      min-height: auto;
+      padding: var(--space-12) clamp(48px, 6cqi, 120px);
       border-radius: 0;
     }
 
     .carousel-wrapper {
-      width: 460px;
+      width: 420px;
       justify-self: end;
       align-self: center;
       --carousel-marker-size: 10px;
