@@ -90,6 +90,18 @@
   <img src={dividerImage} alt="" class="divider" />
 
   <div class="hero-card">
+    <!-- Localized hero content and call to action. -->
+    <div class="content">
+      <h1>{heroTitle}</h1>
+
+      <p>{heroDescription}</p>
+
+      <a href={heroLink} class="link">
+        <span>{heroReadMore}</span>
+        <img src={arrowIcon} alt="" class="icon" />
+      </a>
+    </div>
+
     <div class="carousel-wrapper" style:--hero-show-image={`'${heroShowImage}'`}>
       <!-- Core carousel: horizontal scroll with CSS scroll snapping. -->
       <div class="carousel" bind:this={carouselElement}>
@@ -112,18 +124,6 @@
           </a>
         {/each}
       </div>
-    </div>
-
-    <!-- Localized hero content and call to action. -->
-    <div class="content">
-      <h1>{heroTitle}</h1>
-
-      <p>{heroDescription}</p>
-
-      <a href={heroLink} class="link">
-        <span>{heroReadMore}</span>
-        <img src={arrowIcon} alt="" class="icon" />
-      </a>
     </div>
   </div>
 </section>
@@ -163,6 +163,8 @@
     position: relative;
     z-index: 2;
     display: grid;
+    order: 2;
+    margin-block-start: var(--space-8);
     gap: var(--space-3, 12px);
     --carousel-marker-size: 6px;
     --carousel-marker-size-active: 18px;
@@ -237,6 +239,7 @@
     position: relative;
     z-index: 2;
     display: flex;
+    order: 1;
     flex-direction: column;
     gap: var(--space-4, 16px);
     padding-block-start: 32px;
@@ -268,7 +271,7 @@
     gap: 6px;
     width: max-content;
     min-height: 36px;
-    margin-block-start: 48px;
+    margin-block-start: var(--space-5);
     padding: 0 16px;
     border-radius: var(--radius-pill);
     background-color: var(--c-hero-button-fill);
@@ -339,6 +342,7 @@
       order: 2;
       width: 340px;
       justify-self: end;
+      margin-block-start: 0;
     }
 
     .content {
