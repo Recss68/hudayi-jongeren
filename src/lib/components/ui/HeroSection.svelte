@@ -13,7 +13,6 @@
 
   let carouselElement = $state();
   let activeSlide = $state(0);
-  let hasJavaScript = $state(false);
 
   // Read the active locale from the URL so the hero follows the current route language.
   const activeLocale = $derived.by(() => {
@@ -76,8 +75,6 @@
   // Progressive enhancement: the carousel works with CSS scroll snap without JavaScript.
   // JavaScript only keeps the fallback dots in sync when native scroll markers are unavailable.
   onMount(() => {
-    hasJavaScript = true;
-
     const supportsScrollMarkers = CSS.supports('selector(::scroll-marker)');
 
     if (!carouselElement || !('IntersectionObserver' in window) || supportsScrollMarkers) {
@@ -135,31 +132,19 @@
         {/each}
       </div>
 
-      <!--
-        Progressive enhancement fallback:
-        without JavaScript, passive dots indicate that more slides are available;
-        with JavaScript, the same visual dots become keyboard- and pointer-operable links.
-      -->
-      {#if hasJavaScript}
-        <div class="carousel-dots">
-          {#each slides as slide, index (slide.id)}
-            <a
-              href={`#hero-slide-${slide.id}`}
-              class="dot"
-              class:active-dot={activeSlide === index}
-              onclick={(event) => handleFallbackDotClick(event, index)}
-            >
-              <span class="sr-only">{heroShowImage} {index + 1}</span>
-            </a>
-          {/each}
-        </div>
-      {:else}
-        <div class="carousel-dots carousel-indicators">
-          {#each slides as slide, index (slide.id)}
-            <span class="dot" class:active-dot={index === 0}></span>
-          {/each}
-        </div>
-      {/if}
+      <!-- Native anchor links provide the no-JavaScript fallback. -->
+      <div class="carousel-dots">
+        {#each slides as slide, index (slide.id)}
+          <a
+            href={`#hero-slide-${slide.id}`}
+            class="dot"
+            class:active-dot={activeSlide === index}
+            onclick={(event) => handleFallbackDotClick(event, index)}
+          >
+            <span class="sr-only">{heroShowImage} {index + 1}</span>
+          </a>
+        {/each}
+      </div>
     </div>
   </div>
 </section>
@@ -285,15 +270,11 @@
     gap: var(--carousel-marker-gap);
   }
 
-  .carousel-indicators .dot {
-    pointer-events: none;
-  }
-
   .dot {
     display: grid;
     place-items: center;
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     border-radius: var(--radius-pill);
     text-decoration: none;
 
@@ -399,7 +380,8 @@
 
   @media (min-width: 1100px) {
     .home-hero {
-      padding: var(--space-12) 0 var(--space-8);
+      gap: var(--space-12);
+      padding: var(--space-8) 0 var(--space-8);
     }
   }
 
