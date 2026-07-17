@@ -1,5 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
+  import { gsap } from 'gsap';
   import heroImage from '$lib/assets/test.jpg';
   import heroImageTwo from '$lib/assets/test2.jpg';
   import heroImageThree from '$lib/assets/test3.jpg';
@@ -13,6 +14,12 @@
 
   let carouselElement = $state();
   let activeSlide = $state(0);
+  let heroTitleElement = $state();
+
+  let split;
+  let titleTween;
+  let splitTextPlugin;
+  let heroIsMounted = $state(false);
 
   // Read the active locale from the URL so the hero follows the current route language.
   const activeLocale = $derived.by(() => {
@@ -25,55 +32,109 @@
     return 'tr';
   });
 
+  // Reads a Paraglide message in the currently active locale.
+  const t = (key) => m[key]({}, { locale: activeLocale });
+
   // Localized hero copy from Paraglide messages.
-  const heroImageAlt = $derived(m.home_hero_image_alt({}, { locale: activeLocale }));
-  const heroTitle = $derived(m.home_hero_title({}, { locale: activeLocale }));
-  const heroDescription = $derived(m.home_hero_description({}, { locale: activeLocale }));
-  const heroReadMore = $derived(m.home_hero_read_more({}, { locale: activeLocale }));
-  const heroShowImage = $derived(m.home_hero_show_image({}, { locale: activeLocale }));
+  const heroImageAlt = $derived(t('home_hero_image_alt'));
+  const heroTitle = $derived(t('home_hero_title'));
+  const heroDescription = $derived(t('home_hero_description'));
+  const heroReadMore = $derived(t('home_hero_read_more'));
+  const heroShowImage = $derived(t('home_hero_show_image'));
   const heroLink = $derived(`/${activeLocale}/hakkimizda`);
 
   // Slide data keeps the carousel markup DRY and easy to extend.
   const slides = $derived([
     {
       id: 'community',
+      targetId: 'hero-slide-community',
       image: heroImage,
       alt: heroImageAlt
     },
     {
       id: 'youth',
+      targetId: 'hero-slide-youth',
       image: heroImageTwo,
       alt: ''
     },
     {
       id: 'education',
+      targetId: 'hero-slide-education',
       image: heroImageThree,
       alt: ''
     }
   ]);
 
-  // Enhanced fallback controls: keep anchor links for no-JS, but only scroll the carousel when JS is available.
-  function handleFallbackDotClick(event, index) {
-    if (!carouselElement) {
+  async function animateHeroTitle() {
+    if (
+      !heroIsMounted ||
+      !heroTitleElement ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       return;
     }
 
-    const targetSlide = carouselElement.querySelector(`[data-slide-index="${index}"]`);
+    try {
+      if (!splitTextPlugin) {
+        const SplitTextModule = await import('gsap/SplitText');
 
-    if (!targetSlide) {
-      return;
+        splitTextPlugin =
+          SplitTextModule?.default || SplitTextModule?.SplitText || SplitTextModule;
+
+        if (!splitTextPlugin) {
+          console.warn('SplitText plugin is unavailable.');
+          return;
+        }
+
+        gsap.registerPlugin(splitTextPlugin);
+      }
+
+      titleTween?.kill();
+      split?.revert();
+
+      await tick();
+
+      split = new splitTextPlugin(heroTitleElement, {
+        type: 'words,chars',
+        wordsClass: 'hero-word'
+      });
+
+      titleTween = gsap.from(split.chars, {
+        y: 8,
+        opacity: 0,
+        stagger: 0.05,
+        delay: 0.2,
+        duration: 0.45,
+        ease: 'power2.out'
+      });
+    } catch (error) {
+      console.warn('Error while running the SplitText animation:', error);
     }
-
-    event.preventDefault();
-
-    carouselElement.scrollTo({
-      left: targetSlide.offsetLeft,
-      behavior: 'smooth'
-    });
   }
 
-  // Progressive enhancement: the carousel works with CSS scroll snap without JavaScript.
-  // JavaScript only keeps the fallback dots in sync when native scroll markers are unavailable.
+  // Animate the localized title after mounting.
+  onMount(() => {
+    heroIsMounted = true;
+
+    return () => {
+      heroIsMounted = false;
+      titleTween?.kill();
+      split?.revert();
+    };
+  });
+
+  // Rebuild SplitText whenever the localized title changes.
+  $effect(() => {
+    heroTitle;
+
+    if (!heroIsMounted) {
+      return;
+    }
+
+    animateHeroTitle();
+  });
+
+  // Keep fallback dots synchronized when native scroll markers are unavailable.
   onMount(() => {
     const supportsScrollMarkers = CSS.supports('selector(::scroll-marker)');
 
@@ -103,16 +164,36 @@
 
     return () => observer.disconnect();
   });
+
+  // Keep anchor navigation as the no-JavaScript baseline.
+  function handleFallbackDotClick(event, slide) {
+    if (!carouselElement) {
+      return;
+    }
+
+    const targetSlide = document.getElementById(slide.targetId);
+
+    if (!targetSlide) {
+      return;
+    }
+
+    event.preventDefault();
+
+    carouselElement.scrollTo({
+      left: targetSlide.offsetLeft,
+      behavior: 'smooth'
+    });
+  }
 </script>
 
 <section class="home-hero">
-  <!-- Decorative divider above the hero card. -->
   <img src={dividerImage} alt="" class="divider" />
 
   <div class="hero-card">
-    <!-- Localized hero content and call to action. -->
     <div class="content">
-      <h1>{heroTitle}</h1>
+      {#key heroTitle}
+        <h1 bind:this={heroTitleElement}>{heroTitle}</h1>
+      {/key}
 
       <p>{heroDescription}</p>
 
@@ -123,23 +204,21 @@
     </div>
 
     <div class="carousel-wrapper" style:--hero-show-image={`'${heroShowImage}'`}>
-      <!-- Core carousel: horizontal scroll with CSS scroll snapping. -->
       <div class="carousel" bind:this={carouselElement}>
         {#each slides as slide, index (slide.id)}
-          <figure class="slide" id={`hero-slide-${slide.id}`} data-slide-index={index}>
+          <figure class="slide" id={slide.targetId} data-slide-index={index}>
             <img src={slide.image} alt={slide.alt} class="hero-image" />
           </figure>
         {/each}
       </div>
 
-      <!-- Native anchor links provide the no-JavaScript fallback. -->
       <div class="carousel-dots">
         {#each slides as slide, index (slide.id)}
           <a
-            href={`#hero-slide-${slide.id}`}
+            href={`#${slide.targetId}`}
             class="dot"
             class:active-dot={activeSlide === index}
-            onclick={(event) => handleFallbackDotClick(event, index)}
+            onclick={(event) => handleFallbackDotClick(event, slide)}
           >
             <span class="sr-only">{heroShowImage} {index + 1}</span>
           </a>
@@ -154,9 +233,8 @@
     display: grid;
     justify-items: center;
     gap: var(--space-20);
-    padding: var(--space-24) 16px var(--space-4);
+    padding: var(--space-24) var(--space-4) var(--space-4);
     background-color: var(--c-night-green);
-    /* Establishes the Hero as a named inline-size query container. */
     container: hero / inline-size;
   }
 
@@ -166,11 +244,11 @@
     display: flex;
     flex-direction: column;
     width: min(100%, 343px);
-    padding: 16px 16px 32px;
+    padding: var(--space-4) var(--space-4) var(--space-8);
     border-radius: 12px;
     background-color: var(--c-cream);
     color: var(--c-hero-text);
-    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+    font-family: var(--font-primary);
   }
 
   .divider {
@@ -185,8 +263,9 @@
     z-index: 2;
     display: grid;
     order: 2;
+    gap: var(--space-3);
     margin-block-start: var(--space-8);
-    gap: var(--space-3, 12px);
+
     --carousel-marker-size: 6px;
     --carousel-marker-size-active: 18px;
     --carousel-marker-gap: 6px;
@@ -195,10 +274,9 @@
       background-color 180ms ease;
   }
 
-  /* Core carousel: CSS scroll snap keeps the carousel usable without JavaScript. */
   .carousel {
     display: flex;
-    gap: var(--space-3, 12px);
+    gap: var(--space-3);
     width: 100%;
     overflow-x: auto;
     overscroll-behavior-x: contain;
@@ -228,11 +306,6 @@
     object-fit: cover;
   }
 
-  /*
-   * Scroll-driven carousel image emphasis.
-   * Source: https://scroll-driven-animations.style/
-   * Each image responds to its horizontal position inside the scroll container.
-   */
   @supports (animation-timeline: view(inline)) {
     .hero-image {
       animation-name: hero-image-emphasis;
@@ -257,12 +330,6 @@
     }
   }
 
-  /*
-   * Fallback controls for browsers without native ::scroll-marker support.
-   * Source: https://www.jomaendle.com/blog/css-carousel
-   * The article describes scroll markers as interactive position indicators.
-   * These HTML links mirror that behaviour while using a larger click target.
-   */
   .carousel-dots {
     display: flex;
     justify-content: center;
@@ -304,8 +371,8 @@
     display: flex;
     order: 1;
     flex-direction: column;
-    gap: var(--space-4, 16px);
-    padding-block-start: 32px;
+    gap: var(--space-4);
+    padding-block-start: var(--space-8);
 
     & :is(h1, p) {
       margin: 0;
@@ -313,16 +380,21 @@
 
     & h1 {
       color: var(--c-hero-text);
-      font-size: clamp(28px, 8vw, 32px);
-      font-weight: 700;
-      line-height: 1.1;
+      font-size: var(--fs-hero-heading-mobile);
+      font-weight: var(--fw-bold);
+      line-height: var(--lh-tight);
       letter-spacing: -0.04em;
+
+      :global(.hero-word) {
+        display: inline-block;
+        white-space: nowrap;
+      }
     }
 
     & p {
       color: var(--c-hero-body-text);
-      font-size: 14px;
-      font-weight: 400;
+      font-size: var(--fs-hero-body-mobile);
+      font-weight: var(--fw-regular);
       line-height: 1.5;
     }
   }
@@ -335,12 +407,12 @@
     width: max-content;
     min-height: 36px;
     margin-block-start: var(--space-5);
-    padding: 0 16px;
+    padding: 0 var(--space-4);
     border-radius: var(--radius-pill);
     background-color: var(--c-hero-button-fill);
     color: var(--c-cream);
-    font-size: 12px;
-    font-weight: 700;
+    font-size: var(--fs-hero-cta-mobile);
+    font-weight: var(--fw-bold);
     line-height: 1;
     text-decoration: none;
 
@@ -368,28 +440,19 @@
     white-space: nowrap;
   }
 
-  /*
-   * The New Responsive — macro layout:
-   * this viewport-based media query adjusts page-level spacing.
-   */
   @media (min-width: 768px) {
     .home-hero {
       padding: var(--space-24) 0 var(--space-12);
     }
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1000px) {
     .home-hero {
       gap: var(--space-12);
-      padding: var(--space-8) 0 var(--space-8);
+      padding: var(--space-8) 0;
     }
   }
 
-  /*
-   * The New Responsive — component layout:
-   * this container query lets the Hero respond to its own available width
-   * instead of depending only on the viewport width.
-   */
   @container hero (min-width: 768px) {
     .hero-card {
       display: grid;
@@ -398,7 +461,7 @@
       gap: clamp(48px, 7cqi, 96px);
       width: min(100%, 1024px);
       min-height: 500px;
-      padding: 72px 32px 72px 40px;
+      padding: 72px var(--space-8) 72px 40px;
       border-radius: 0;
     }
 
@@ -423,35 +486,29 @@
 
     .content h1 {
       max-width: 12ch;
-      font-size:  clamp(30px, 4vw, 36px);
+      font-size: var(--fs-hero-heading-tablet);
     }
 
     .content p {
       max-width: 35ch;
-      font-size: 14px;
+      font-size: var(--fs-hero-body-tablet);
     }
   }
 
-  /*
-   * The New Responsive — desktop component layout:
-   * the Hero fills the available desktop width while the inner content
-   * scales from the tablet composition based on the container size.
-   */
-  @container hero (min-width: 1100px) {
+  @container hero (min-width: 1000px) {
     .hero-card {
-      grid-template-columns: minmax(0, 420px) 420px;
+      grid-template-columns: minmax(0, 420px) minmax(380px, 420px);
       justify-content: center;
-      gap: 80px;
+      gap: clamp(48px, 5cqi, 80px);
       width: 100%;
       min-height: auto;
       padding: var(--space-12) clamp(48px, 5cqi, 80px);
-      border-radius: 0;
     }
 
     .carousel-wrapper {
-      width: 420px;
-      justify-self: end;
+      width: min(100%, 420px);
       align-self: center;
+
       --carousel-marker-size: 10px;
       --carousel-marker-size-active: 28px;
       --carousel-marker-gap: 10px;
@@ -459,13 +516,6 @@
 
     .hero-image {
       aspect-ratio: 4 / 5;
-    }
-
-    .content {
-      align-self: center;
-      gap: var(--space-5);
-      height: auto;
-      padding-block-start: 0;
     }
 
     .content h1 {
@@ -481,26 +531,22 @@
 
     .link {
       min-height: 44px;
-      margin-block-start: var(--space-5);
       padding-inline: var(--space-5);
       font-size: var(--fs-hero-cta-desktop);
     }
   }
 
-  /*
-   * Reduce motion for users who prefer it.
-   */
   @media (prefers-reduced-motion: reduce) {
     .hero-image {
       animation: none;
     }
+
+    .content h1 {
+      opacity: 1;
+      transform: none;
+    }
   }
 
-  /*
-   * Native CSS carousel enhancement:
-   * Chromium browsers can generate stateful markers with ::scroll-marker.
-   * The visual design uses dots only, so ::scroll-button arrows are intentionally not enabled.
-   */
   @supports selector(::scroll-marker) {
     .carousel {
       scroll-marker-group: after;
@@ -515,11 +561,11 @@
 
     .slide {
       &::scroll-marker {
-        content: ' ' / var(--hero-show-image) ' ' counter(slide-counter);
         width: var(--carousel-marker-size);
         height: var(--carousel-marker-size);
         border-radius: var(--radius-pill);
         background-color: var(--c-hero-dot-muted);
+        content: ' ' / var(--hero-show-image) ' ' counter(slide-counter);
         transition: var(--carousel-marker-transition);
       }
 
