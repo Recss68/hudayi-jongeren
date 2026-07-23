@@ -460,8 +460,8 @@
       align-items: start;
       gap: clamp(48px, 7cqi, 96px);
       width: min(100%, 1024px);
-      min-height: 500px;
-      padding: 72px var(--space-8) 72px 40px;
+      min-height: auto;
+      padding: var(--space-12) clamp(48px, 5cqi, 80px);
       border-radius: 0;
     }
 
@@ -470,6 +470,10 @@
       width: 340px;
       justify-self: end;
       margin-block-start: 0;
+
+      --carousel-marker-size: 10px;
+      --carousel-marker-size-active: 28px;
+      --carousel-marker-gap: 10px;
     }
 
     .content {
@@ -478,10 +482,6 @@
       gap: var(--space-5);
       height: auto;
       padding-block-start: 0;
-    }
-
-    .link {
-      margin-block-start: var(--space-5);
     }
 
     .content h1 {
@@ -501,17 +501,11 @@
       justify-content: center;
       gap: clamp(48px, 5cqi, 80px);
       width: 100%;
-      min-height: auto;
-      padding: var(--space-12) clamp(48px, 5cqi, 80px);
     }
 
     .carousel-wrapper {
       width: min(100%, 420px);
       align-self: center;
-
-      --carousel-marker-size: 10px;
-      --carousel-marker-size-active: 28px;
-      --carousel-marker-gap: 10px;
     }
 
     .hero-image {
