@@ -213,6 +213,14 @@ p {
 		transition: none !important;
 		animation: none !important;
 	}
+
+	/* ::view-transition-* pseudo-elements live outside the normal DOM tree,
+	   so the universal selector above does not reach them. */
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
 }
 
 .section {
