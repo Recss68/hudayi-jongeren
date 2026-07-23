@@ -425,6 +425,13 @@
       width: 12px;
       height: 12px;
       flex: 0 0 auto;
+      transition: transform 180ms ease;
+    }
+  }
+
+  @media (hover: hover) {
+    .link:hover .icon {
+      transform: scale(1.95);
     }
   }
 
