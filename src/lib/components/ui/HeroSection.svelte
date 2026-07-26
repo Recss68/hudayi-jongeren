@@ -187,10 +187,12 @@
 </script>
 
 <section class="home-hero">
+  <!-- Decorative only — no meaningful content, so alt stays empty. -->
   <img src={dividerImage} alt="" class="divider" />
 
   <div class="hero-card">
     <div class="content">
+      <!-- Forces a remount on locale change, so GSAP SplitText gets a fresh element to split. -->
       {#key heroTitle}
         <h1 bind:this={heroTitleElement}>{heroTitle}</h1>
       {/key}
@@ -203,7 +205,9 @@
       </a>
     </div>
 
+    <!-- Custom property feeds the accessible label text used by the native ::scroll-marker content string. -->
     <div class="carousel-wrapper" style:--hero-show-image={`'${heroShowImage}'`}>
+      <!-- Core carousel — id/data-slide-index power both the anchor fallback and the IntersectionObserver sync. -->
       <div class="carousel" bind:this={carouselElement}>
         {#each slides as slide, index (slide.id)}
           <figure class="slide" id={slide.targetId} data-slide-index={index}>
@@ -212,6 +216,7 @@
         {/each}
       </div>
 
+      <!-- HTML fallback navigation — hidden natively once ::scroll-marker support is detected in CSS. -->
       <div class="carousel-dots">
         {#each slides as slide, index (slide.id)}
           <a
@@ -266,6 +271,7 @@
     gap: var(--space-3);
     margin-block-start: var(--space-8);
 
+    /* Single source of truth for dot sizing — read by both the HTML fallback dots and the native ::scroll-marker layer below. */
     --carousel-marker-size: 6px;
     --carousel-marker-size-active: 18px;
     --carousel-marker-gap: 6px;
@@ -274,6 +280,7 @@
       background-color 180ms ease;
   }
 
+  /* Core carousel — works with zero JavaScript via native scroll-snap. */
   .carousel {
     display: flex;
     gap: var(--space-3);
@@ -306,6 +313,7 @@
     object-fit: cover;
   }
 
+  /* Scroll-driven animation enhancement — feature-detected, no JS required. */
   @supports (animation-timeline: view(inline)) {
     .hero-image {
       animation-name: hero-image-emphasis;
@@ -337,6 +345,7 @@
     gap: var(--carousel-marker-gap);
   }
 
+  /* 44x44px hit area for accessible touch targets — the visible marker itself is smaller (see --carousel-marker-size). */
   .dot {
     display: grid;
     place-items: center;
@@ -427,11 +436,12 @@
       flex: 0 0 auto;
       transition: transform 180ms ease;
     }
-  }
 
-  @media (hover: hover) {
-    .link:hover .icon {
-      transform: scale(1.95);
+    /* hover: hover — only true pointer devices, so a touch tap doesn't leave the icon "stuck" enlarged. */
+    @media (hover: hover) {
+      &:hover .icon {
+        transform: scale(1.95);
+      }
     }
   }
 
@@ -460,6 +470,7 @@
     }
   }
 
+  /* Tablet tier — padding and marker size intentionally match the 1000px tier below, so there is no visual jump between them. */
   @container hero (min-width: 768px) {
     .hero-card {
       display: grid;
@@ -502,6 +513,7 @@
     }
   }
 
+  /* Desktop tier — only the column layout and image ratio change; spacing/marker size are already set above. */
   @container hero (min-width: 1000px) {
     .hero-card {
       grid-template-columns: minmax(0, 420px) minmax(380px, 420px);
@@ -537,6 +549,7 @@
     }
   }
 
+  /* Disables both the scroll-driven image animation and the GSAP title animation. */
   @media (prefers-reduced-motion: reduce) {
     .hero-image {
       animation: none;
@@ -548,6 +561,7 @@
     }
   }
 
+  /* Native CSS carousel markers replace the HTML fallback dots when supported (Chromium only, at time of writing). */
   @supports selector(::scroll-marker) {
     .carousel {
       scroll-marker-group: after;
