@@ -549,18 +549,6 @@
     }
   }
 
-  /* Disables both the scroll-driven image animation and the GSAP title animation. */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-image {
-      animation: none;
-    }
-
-    .content h1 {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
   /* Native CSS carousel markers replace the HTML fallback dots when supported (Chromium only, at time of writing). */
   @supports selector(::scroll-marker) {
     .carousel {
