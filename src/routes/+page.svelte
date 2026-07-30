@@ -1,7 +1,5 @@
 <script>
-  import Hero from '$lib/components/ui/HeroSection.svelte';
-  import { QuranVerseSection, InstagramWidget, BukhariHadithSection, BlogSection } from '$lib';
-	import HeroSection from '$lib/components/ui/HeroSection.svelte';
+  import { HeroSection, QuranVerseSection, InstagramWidget, BukhariHadithSection, BlogSection } from '$lib';
 </script>
 
 <HeroSection />
