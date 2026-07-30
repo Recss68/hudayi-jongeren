@@ -1,4 +1,5 @@
 <script>
+  // Third-party libraries, assets, and Paraglide messages used by this component.
   import { onMount, tick } from 'svelte';
   import { gsap } from 'gsap';
   import heroImage from '$lib/assets/test.jpg';
@@ -9,17 +10,17 @@
   import { page } from '$app/state';
   import * as m from '$lib/paraglide/messages';
 
-  // Supported route locales. Turkish is used as the default fallback.
   const supportedLocales = ['nl', 'en', 'tr'];
 
-  let carouselElement = $state();
-  let activeSlide = $state(0);
-  let heroTitleElement = $state();
+  let carouselElement = $state(); // Bound to the carousel DOM node, e.g. for scrollTo().
+  let activeSlide = $state(0); // Index of the currently visible slide, drives the active dot.
+  let heroTitleElement = $state(); // Bound to the <h1>, so GSAP SplitText can read its real text.
 
+  // Plain (non-reactive) — internal GSAP bookkeeping, the UI never needs to react to these.
   let split;
   let titleTween;
   let splitTextPlugin;
-  let heroIsMounted = $state(false);
+  let heroIsMounted = $state(false); // Guards the title animation so it only runs while mounted.
 
   // Read the active locale from the URL so the hero follows the current route language.
   const activeLocale = $derived.by(() => {
@@ -36,7 +37,6 @@
   const t = (key) => m[key]({}, { locale: activeLocale });
 
   // Localized hero copy from Paraglide messages.
-  const heroImageAlt = $derived(t('home_hero_image_alt'));
   const heroTitle = $derived(t('home_hero_title'));
   const heroDescription = $derived(t('home_hero_description'));
   const heroReadMore = $derived(t('home_hero_read_more'));
@@ -49,19 +49,19 @@
       id: 'community',
       targetId: 'hero-slide-community',
       image: heroImage,
-      alt: heroImageAlt
+      alt: t('home_hero_image_alt_community')
     },
     {
       id: 'youth',
       targetId: 'hero-slide-youth',
       image: heroImageTwo,
-      alt: ''
+      alt: t('home_hero_image_alt_youth')
     },
     {
       id: 'education',
       targetId: 'hero-slide-education',
       image: heroImageThree,
-      alt: ''
+      alt: t('home_hero_image_alt_education')
     }
   ]);
 
