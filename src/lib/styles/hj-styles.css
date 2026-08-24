@@ -125,7 +125,6 @@
 	--fs-hero-heading-mobile: clamp(1.75rem, 8vw, 2rem);
 	--fs-hero-heading-tablet: clamp(1.875rem, 4vw, 2.25rem);
 	--fs-hero-body-mobile: 0.875rem;
-	--fs-hero-body-tablet: 0.875rem;
 	--fs-hero-cta-mobile: 0.75rem;
 	--fs-body-sm-mobile: 0.875rem;
 
@@ -221,6 +220,15 @@ p {
 	::view-transition-new(*) {
 		animation: none !important;
 	}
+}
+
+/*
+	Cross-document view transitions: native paginaovergangen bij navigatie
+	(bv. taalwissel). Same-document routing gebruikt startViewTransition()
+	in +layout.svelte; deze at-rule dekt de MPA/cross-document variant.
+*/
+@view-transition {
+	navigation: auto;
 }
 
 .section {
