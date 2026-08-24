@@ -4,15 +4,6 @@
    ========================================================================== */
 
 /* --- Fonts ------------------------------------------------- */
-/* Plus Jakarta Sans - Light (300) */
-@font-face {
-	font-family: 'Plus Jakarta Sans';
-	font-style: normal;
-	font-weight: 300;
-	font-display: swap;
-	src: url('/fonts/plus-jakarta-sans-v12-latin-300.woff2') format('woff2');
-}
-
 /* Plus Jakarta Sans - Regular (400) */
 @font-face {
 	font-family: 'Plus Jakarta Sans';
@@ -76,9 +67,8 @@
 	--c-poederblauw-hex: #bed4e2;
 	--c-wit-hex: #ffffff;
 	--c-bordeaux-hex: #6e0f13;
-	--c-bg-text: #3d5a47;
 
-	/* Color Palette - RGB Waarden */
+	/* Color Palette - RGB Values */
 	--c-nachtgroen-rgb: 32, 50, 38;
 	--c-creme-rgb: 244, 235, 204;
 	--c-salie-rgb: 138, 157, 106;
@@ -86,7 +76,7 @@
 	--c-wit-rgb: 255, 255, 255;
 	--c-bordeaux-rgb: 110, 15, 19;
 
-	/* Color Palette - Actieve Variabelen met Fallback */
+	/* Color Palette - Active Variables with Fallbacks */
 	--c-nachtgroen: rgb(var(--c-nachtgroen-rgb, 32, 50, 38));
 	--c-creme: rgb(var(--c-creme-rgb, 244, 235, 204));
 	--c-salie: rgb(var(--c-salie-rgb, 138, 157, 106));
@@ -94,10 +84,25 @@
 	--c-wit: rgb(var(--c-wit-rgb, 255, 255, 255));
 	--c-bordeaux: rgb(var(--c-bordeaux-rgb, 110, 15, 19));
 
+	/* English Color Aliases */
+	--c-night-green: var(--c-nachtgroen);
+	--c-cream: var(--c-creme);
+	--c-sage: var(--c-salie);
+	--c-powder-blue: var(--c-poederblauw);
+	--c-white: var(--c-wit);
+	--c-burgundy: var(--c-bordeaux);
+
 	/* Functional Color Assignments */
-	--c-bg-main: var(--c-nachtgroen, var(--c-nachtgroen-hex));
-	--c-text-main: var(--c-creme, var(--c-creme-hex));
-	--c-accent: var(--c-salie, var(--c-salie-hex));
+	--c-bg-main: var(--c-night-green, var(--c-nachtgroen-hex));
+	--c-text-main: var(--c-cream, var(--c-creme-hex));
+	--c-accent: var(--c-sage, var(--c-salie-hex));
+
+	/* Hero Component Colors */
+	--c-hero-dot: #3b8252;
+	--c-hero-dot-muted: rgb(59 130 82 / 50%);
+	--c-hero-text: #294a34;
+	--c-hero-body-text: #294a34;
+	--c-hero-button-fill: #2c4626;
 
 	/* Typography */
 	--font-primary: 'Plus Jakarta Sans', sans-serif;
@@ -110,9 +115,18 @@
 	--fw-semibold: 600;
 	--fw-bold: 700;
 
-	/* Font sizes (desktop targets from style guide) */
+	/* Font sizes — desktop targets from style guide */
+	--fs-hero-heading-desktop: clamp(2.75rem, 3.5cqi, 3.5rem);
+	--fs-hero-body-desktop: 1.0625rem;
+	--fs-hero-cta-desktop: 0.875rem;
+	--fs-body-md: 1rem;
 
-	/* Font sizes (mobile targets from style guide) */
+	/* Font sizes — mobile and tablet targets from style guide */
+	--fs-hero-heading-mobile: clamp(1.75rem, 8vw, 2rem);
+	--fs-hero-heading-tablet: clamp(1.875rem, 4vw, 2.25rem);
+	--fs-hero-body-mobile: 0.875rem;
+	--fs-hero-cta-mobile: 0.75rem;
+	--fs-body-sm-mobile: 0.875rem;
 
 	/* Line heights */
 	--lh-tight: 1.1;
@@ -140,10 +154,11 @@
 	--space-27: 10rem;
 	--space-28: 12rem;
 
-	/* Radius (style guide: none 0px, round 20px) */
+	/* Border Radius */
 	--radius-soft: 10px;
 	--radius-m: 16px;
 	--radius-round: 20px;
+	--radius-pill: 999px;
 
 	/* Layout */
 	--container-max: 1280px;
@@ -190,13 +205,30 @@ p {
 	direction: rtl;
 }
 
-/* Reduce motion */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
 	* {
 		scroll-behavior: auto !important;
 		transition: none !important;
 		animation: none !important;
 	}
+
+	/* ::view-transition-* pseudo-elements live outside the normal DOM tree,
+	   so the universal selector above does not reach them. */
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
+
+/*
+	Cross-document view transitions: native paginaovergangen bij navigatie
+	(bv. taalwissel). Same-document routing gebruikt startViewTransition()
+	in +layout.svelte; deze at-rule dekt de MPA/cross-document variant.
+*/
+@view-transition {
+	navigation: auto;
 }
 
 .section {
