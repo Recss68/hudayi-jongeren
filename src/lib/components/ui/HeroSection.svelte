@@ -1,5 +1,4 @@
 <script>
-  // Third-party libraries, assets, and Paraglide messages used by this component.
   import { onMount, tick } from 'svelte';
   import { gsap } from 'gsap';
   import heroImage from '$lib/assets/test.jpg';
@@ -12,17 +11,16 @@
 
   const supportedLocales = ['nl', 'en', 'tr'];
 
-  let carouselElement = $state(); // Bound to the carousel DOM node, e.g. for scrollTo().
-  let activeSlide = $state(0); // Index of the currently visible slide, drives the active dot.
-  let heroTitleElement = $state(); // Bound to the <h1>, so GSAP SplitText can read its real text.
+  let carouselElement = $state();
+  let activeSlide = $state(0);
+  let heroTitleElement = $state();
 
-  // Plain (non-reactive) — internal GSAP bookkeeping, the UI never needs to react to these.
   let split;
   let titleTween;
   let splitTextPlugin;
-  let heroIsMounted = $state(false); // Guards the title animation so it only runs while mounted.
 
-  // Read the active locale from the URL so the hero follows the current route language.
+  let heroIsMounted = $state(false);
+
   const activeLocale = $derived.by(() => {
     const locale = page.url.pathname.split('/')[1];
 
@@ -33,17 +31,14 @@
     return 'tr';
   });
 
-  // Reads a Paraglide message in the currently active locale.
   const t = (key) => m[key]({}, { locale: activeLocale });
 
-  // Localized hero copy from Paraglide messages.
   const heroTitle = $derived(t('home_hero_title'));
   const heroDescription = $derived(t('home_hero_description'));
   const heroReadMore = $derived(t('home_hero_read_more'));
   const heroShowImage = $derived(t('home_hero_show_image'));
   const heroLink = $derived(`/${activeLocale}/hakkimizda`);
 
-  // Slide data keeps the carousel markup DRY and easy to extend.
   const slides = $derived([
     {
       id: 'community',
@@ -90,6 +85,7 @@
       }
 
       titleTween?.kill();
+
       split?.revert();
 
       await tick();
@@ -112,7 +108,6 @@
     }
   }
 
-  // Animate the localized title after mounting.
   onMount(() => {
     heroIsMounted = true;
 
@@ -123,7 +118,6 @@
     };
   });
 
-  // Rebuild SplitText whenever the localized title changes.
   $effect(() => {
     heroTitle;
 
@@ -134,7 +128,6 @@
     animateHeroTitle();
   });
 
-  // Keep fallback dots synchronized when native scroll markers are unavailable.
   onMount(() => {
     const supportsScrollMarkers = CSS.supports('selector(::scroll-marker)');
 
@@ -165,7 +158,6 @@
     return () => observer.disconnect();
   });
 
-  // Keep anchor navigation as the no-JavaScript baseline.
   function handleFallbackDotClick(event, slide) {
     if (!carouselElement) {
       return;
@@ -187,12 +179,10 @@
 </script>
 
 <section class="home-hero">
-  <!-- Decorative only — no meaningful content, so alt stays empty. -->
   <img src={dividerImage} alt="" class="divider" />
 
   <div class="hero-card">
     <div class="content">
-      <!-- Forces a remount on locale change, so GSAP SplitText gets a fresh element to split. -->
       {#key heroTitle}
         <h1 bind:this={heroTitleElement}>{heroTitle}</h1>
       {/key}
@@ -205,9 +195,7 @@
       </a>
     </div>
 
-    <!-- Custom property feeds the accessible label text used by the native ::scroll-marker content string. -->
     <div class="carousel-wrapper" style:--hero-show-image={`'${heroShowImage}'`}>
-      <!-- Core carousel — id/data-slide-index power both the anchor fallback and the IntersectionObserver sync. -->
       <div class="carousel" bind:this={carouselElement}>
         {#each slides as slide, index (slide.id)}
           <figure class="slide" id={slide.targetId} data-slide-index={index}>
@@ -216,7 +204,6 @@
         {/each}
       </div>
 
-      <!-- HTML fallback navigation — hidden natively once ::scroll-marker support is detected in CSS. -->
       <div class="carousel-dots">
         {#each slides as slide, index (slide.id)}
           <a
@@ -240,6 +227,7 @@
     gap: var(--space-20);
     padding: var(--space-24) var(--space-4) var(--space-4);
     background-color: var(--c-night-green);
+
     container: hero / inline-size;
   }
 
@@ -271,7 +259,6 @@
     gap: var(--space-3);
     margin-block-start: var(--space-8);
 
-    /* Single source of truth for dot sizing — read by both the HTML fallback dots and the native ::scroll-marker layer below. */
     --carousel-marker-size: 6px;
     --carousel-marker-size-active: 18px;
     --carousel-marker-gap: 6px;
@@ -280,14 +267,15 @@
       background-color 180ms ease;
   }
 
-  /* Core carousel — works with zero JavaScript via native scroll-snap. */
   .carousel {
     display: flex;
     gap: var(--space-3);
     width: 100%;
     overflow-x: auto;
     overscroll-behavior-x: contain;
+
     scroll-snap-type: x mandatory;
+
     scroll-behavior: smooth;
     scrollbar-width: none;
     counter-reset: slide-counter;
@@ -300,8 +288,10 @@
   .slide {
     flex: 0 0 100%;
     margin: 0;
+
     scroll-snap-align: center;
     scroll-snap-stop: always;
+
     counter-increment: slide-counter;
   }
 
@@ -313,13 +303,13 @@
     object-fit: cover;
   }
 
-  /* Scroll-driven animation enhancement — feature-detected, no JS required. */
   @supports (animation-timeline: view(inline)) {
     .hero-image {
       animation-name: hero-image-emphasis;
       animation-duration: 1ms;
       animation-fill-mode: both;
       animation-timing-function: ease-in-out;
+
       animation-timeline: view(inline);
       animation-range: cover 0% cover 100%;
     }
@@ -345,7 +335,6 @@
     gap: var(--carousel-marker-gap);
   }
 
-  /* 44x44px hit area for accessible touch targets — the visible marker itself is smaller (see --carousel-marker-size). */
   .dot {
     display: grid;
     place-items: center;
@@ -437,13 +426,13 @@
       transition: transform 180ms ease;
     }
 
-    /* hover: hover — only true pointer devices, so a touch tap doesn't leave the icon "stuck" enlarged. */
     @media (hover: hover) {
       &:hover .icon {
         transform: scale(1.95);
       }
     }
   }
+
 
   .sr-only {
     position: absolute;
@@ -470,7 +459,6 @@
     }
   }
 
-  /* Tablet tier — padding and marker size intentionally match the 1000px tier below, so there is no visual jump between them. */
   @container hero (min-width: 768px) {
     .hero-card {
       display: grid;
@@ -509,11 +497,9 @@
 
     .content p {
       max-width: 35ch;
-      font-size: var(--fs-hero-body-tablet);
     }
   }
 
-  /* Desktop tier — only the column layout and image ratio change; spacing/marker size are already set above. */
   @container hero (min-width: 1000px) {
     .hero-card {
       grid-template-columns: minmax(0, 420px) minmax(380px, 420px);
@@ -525,6 +511,10 @@
     .carousel-wrapper {
       width: min(100%, 420px);
       align-self: center;
+
+      --carousel-marker-size: 12px;
+      --carousel-marker-size-active: 32px;
+      --carousel-marker-gap: 16px;
     }
 
     .hero-image {
@@ -549,7 +539,6 @@
     }
   }
 
-  /* Native CSS carousel markers replace the HTML fallback dots when supported (Chromium only, at time of writing). */
   @supports selector(::scroll-marker) {
     .carousel {
       scroll-marker-group: after;
